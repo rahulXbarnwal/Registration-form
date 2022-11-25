@@ -17,7 +17,6 @@ import { useState } from "react";
 const MainForm = () => {
   const navigate = useNavigate();
   const [teamName, setTeamName] = useState("");
-  const [teamSize, setTeamSize] = useState("");
   const [groupASize, setGroupASize] = useState("");
   const [groupBSize, setGroupBSize] = useState("");
   const [addDetails, setAddDetails] = useState(false);
@@ -75,7 +74,7 @@ const MainForm = () => {
     console.log(data);
     setLoading(true);
     const res = await axios
-      .post("https://temp-app-studentapi.herokuapp.com/", data)
+      .post("https://temp-app-studentapi.herokuapp.com/api/v1/student", data)
       .catch((err) => {
         console.log(err);
         setLoading(false);
@@ -89,351 +88,225 @@ const MainForm = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     let data = {};
-    if (teamSize === 4) {
-      if (groupASize === 1) {
-        if (
-          groupA1.name === "" ||
-          groupA1.rollNo === "" ||
-          groupA1.branch === "" ||
-          groupA1.email === "" ||
-          groupA1.phoneNo === "" ||
-          groupB1.name === "" ||
-          groupB1.rollNo === "" ||
-          groupB1.branch === "" ||
-          groupB1.email === "" ||
-          groupB1.phoneNo === "" ||
-          groupB2.name === "" ||
-          groupB2.rollNo === "" ||
-          groupB2.branch === "" ||
-          groupB2.email === "" ||
-          groupB2.phoneNo === "" ||
-          groupB3.name === "" ||
-          groupB3.rollNo === "" ||
-          groupB3.branch === "" ||
-          groupB3.email === "" ||
-          groupB3.phoneNo === ""
-        ) {
-          toast.warn("Please Enter All Details !", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          return;
-        }
-        data = {
-          team: {
-            teamname: teamName,
-            teamsize: teamSize,
-            groupA: [
-              {
-                name: groupA1.name,
-                rollNo: groupA1.rollNo,
-                branch: groupA1.branch,
-                email: groupA1.email,
-                phoneNo: groupA1.phoneNo,
-              },
-            ],
-            groupB: [
-              {
-                name: groupB1.name,
-                rollNo: groupB1.rollNo,
-                branch: groupB1.branch,
-                email: groupB1.email,
-                phoneNo: groupB1.phoneNo,
-              },
-              {
-                name: groupB2.name,
-                rollNo: groupB2.rollNo,
-                branch: groupB2.branch,
-                email: groupB2.email,
-                phoneNo: groupB2.phoneNo,
-              },
-              {
-                name: groupB3.name,
-                rollNo: groupB3.rollNo,
-                branch: groupB3.branch,
-                email: groupB3.email,
-                phoneNo: groupB3.phoneNo,
-              },
-            ],
-          },
-        };
-      } else if (groupASize === 2) {
-        if (
-          groupA1.name === "" ||
-          groupA1.rollNo === "" ||
-          groupA1.branch === "" ||
-          groupA1.email === "" ||
-          groupA1.phoneNo === "" ||
-          groupA2.name === "" ||
-          groupA2.rollNo === "" ||
-          groupA2.branch === "" ||
-          groupA2.email === "" ||
-          groupA2.phoneNo === "" ||
-          groupB1.name === "" ||
-          groupB1.rollNo === "" ||
-          groupB1.branch === "" ||
-          groupB1.email === "" ||
-          groupB1.phoneNo === "" ||
-          groupB2.name === "" ||
-          groupB2.rollNo === "" ||
-          groupB2.branch === "" ||
-          groupB2.email === "" ||
-          groupB2.phoneNo === ""
-        ) {
-          toast.warn("Please Enter All Details !", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          return;
-        }
-        data = {
-          team: {
-            teamname: teamName,
-            teamsize: teamSize,
-            groupA: [
-              {
-                name: groupA1.name,
-                rollNo: groupA1.rollNo,
-                branch: groupA1.branch,
-                email: groupA1.email,
-                phoneNo: groupA1.phoneNo,
-              },
-              {
-                name: groupA2.name,
-                rollNo: groupA2.rollNo,
-                branch: groupA2.branch,
-                email: groupA2.email,
-                phoneNo: groupA2.phoneNo,
-              },
-            ],
-            groupB: [
-              {
-                name: groupB1.name,
-                rollNo: groupB1.rollNo,
-                branch: groupB1.branch,
-                email: groupB1.email,
-                phoneNo: groupB1.phoneNo,
-              },
-              {
-                name: groupB2.name,
-                rollNo: groupB2.rollNo,
-                branch: groupB2.branch,
-                email: groupB2.email,
-                phoneNo: groupB2.phoneNo,
-              },
-            ],
-          },
-        };
-      } else if (groupASize === 3) {
-        if (
-          groupA1.name === "" ||
-          groupA1.rollNo === "" ||
-          groupA1.branch === "" ||
-          groupA1.email === "" ||
-          groupA1.phoneNo === "" ||
-          groupA2.name === "" ||
-          groupA2.rollNo === "" ||
-          groupA2.branch === "" ||
-          groupA2.email === "" ||
-          groupA2.phoneNo === "" ||
-          groupA3.name === "" ||
-          groupA3.rollNo === "" ||
-          groupA3.branch === "" ||
-          groupA3.email === "" ||
-          groupA3.phoneNo === "" ||
-          groupB1.name === "" ||
-          groupB1.rollNo === "" ||
-          groupB1.branch === "" ||
-          groupB1.email === "" ||
-          groupB1.phoneNo === ""
-        ) {
-          toast.warn("Please Enter All Details !", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          return;
-        }
-        data = {
-          team: {
-            teamname: teamName,
-            teamsize: teamSize,
-            groupA: [
-              {
-                name: groupA1.name,
-                rollNo: groupA1.rollNo,
-                branch: groupA1.branch,
-                email: groupA1.email,
-                phoneNo: groupA1.phoneNo,
-              },
-              {
-                name: groupA2.name,
-                rollNo: groupA2.rollNo,
-                branch: groupA2.branch,
-                email: groupA2.email,
-                phoneNo: groupA2.phoneNo,
-              },
-              {
-                name: groupA3.name,
-                rollNo: groupA3.rollNo,
-                branch: groupA3.branch,
-                email: groupA3.email,
-                phoneNo: groupA3.phoneNo,
-              },
-            ],
-            groupB: [
-              {
-                name: groupB1.name,
-                rollNo: groupB1.rollNo,
-                branch: groupB1.branch,
-                email: groupB1.email,
-                phoneNo: groupB1.phoneNo,
-              },
-            ],
-          },
-        };
+    if (groupASize === 1) {
+      if (
+        groupA1.name === "" ||
+        groupA1.rollNo === "" ||
+        groupA1.branch === "" ||
+        groupA1.email === "" ||
+        groupA1.phoneNo === "" ||
+        groupB1.name === "" ||
+        groupB1.rollNo === "" ||
+        groupB1.branch === "" ||
+        groupB1.email === "" ||
+        groupB1.phoneNo === "" ||
+        groupB2.name === "" ||
+        groupB2.rollNo === "" ||
+        groupB2.branch === "" ||
+        groupB2.email === "" ||
+        groupB2.phoneNo === "" ||
+        groupB3.name === "" ||
+        groupB3.rollNo === "" ||
+        groupB3.branch === "" ||
+        groupB3.email === "" ||
+        groupB3.phoneNo === ""
+      ) {
+        toast.warn("Please Enter All Details !", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
       }
-    } else if (teamSize === 3) {
-      if (groupASize === 1) {
-        if (
-          groupA1.name === "" ||
-          groupA1.rollNo === "" ||
-          groupA1.branch === "" ||
-          groupA1.email === "" ||
-          groupA1.phoneNo === "" ||
-          groupB1.name === "" ||
-          groupB1.rollNo === "" ||
-          groupB1.branch === "" ||
-          groupB1.email === "" ||
-          groupB1.phoneNo === "" ||
-          groupB2.name === "" ||
-          groupB2.rollNo === "" ||
-          groupB2.branch === "" ||
-          groupB2.email === "" ||
-          groupB2.phoneNo === ""
-        ) {
-          toast.warn("Please Enter All Details !", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          return;
-        }
-        data = {
-          team: {
-            teamname: teamName,
-            teamsize: teamSize,
-            groupA: [
-              {
-                name: groupA1.name,
-                rollNo: groupA1.rollNo,
-                branch: groupA1.branch,
-                email: groupA1.email,
-                phoneNo: groupA1.phoneNo,
-              },
-            ],
-            groupB: [
-              {
-                name: groupB1.name,
-                rollNo: groupB1.rollNo,
-                branch: groupB1.branch,
-                email: groupB1.email,
-                phoneNo: groupB1.phoneNo,
-              },
-              {
-                name: groupB2.name,
-                rollNo: groupB2.rollNo,
-                branch: groupB2.branch,
-                email: groupB2.email,
-                phoneNo: groupB2.phoneNo,
-              },
-            ],
-          },
-        };
-      } else if (groupASize === 2) {
-        if (
-          groupA1.name === "" ||
-          groupA1.rollNo === "" ||
-          groupA1.branch === "" ||
-          groupA1.email === "" ||
-          groupA1.phoneNo === "" ||
-          groupA2.name === "" ||
-          groupA2.rollNo === "" ||
-          groupA2.branch === "" ||
-          groupA2.email === "" ||
-          groupA2.phoneNo === "" ||
-          groupB1.name === "" ||
-          groupB1.rollNo === "" ||
-          groupB1.branch === "" ||
-          groupB1.email === "" ||
-          groupB1.phoneNo === ""
-        ) {
-          toast.warn("Please Enter All Details !", {
-            position: "top-center",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
-          return;
-        }
-        data = {
-          team: {
-            teamname: teamName,
-            teamsize: teamSize,
-            groupA: [
-              {
-                name: groupA1.name,
-                rollNo: groupA1.rollNo,
-                branch: groupA1.branch,
-                email: groupA1.email,
-                phoneNo: groupA1.phoneNo,
-              },
-              {
-                name: groupA2.name,
-                rollNo: groupA2.rollNo,
-                branch: groupA2.branch,
-                email: groupA2.email,
-                phoneNo: groupA2.phoneNo,
-              },
-            ],
-            groupB: [
-              {
-                name: groupB1.name,
-                rollNo: groupB1.rollNo,
-                branch: groupB1.branch,
-                email: groupB1.email,
-                phoneNo: groupB1.phoneNo,
-              },
-            ],
-          },
-        };
+      data = {
+        team: {
+          teamname: teamName,
+          teamsize: 4,
+          groupA: [
+            {
+              name: groupA1.name,
+              rollNo: groupA1.rollNo,
+              branch: groupA1.branch,
+              email: groupA1.email,
+              phoneNo: groupA1.phoneNo,
+            },
+          ],
+          groupB: [
+            {
+              name: groupB1.name,
+              rollNo: groupB1.rollNo,
+              branch: groupB1.branch,
+              email: groupB1.email,
+              phoneNo: groupB1.phoneNo,
+            },
+            {
+              name: groupB2.name,
+              rollNo: groupB2.rollNo,
+              branch: groupB2.branch,
+              email: groupB2.email,
+              phoneNo: groupB2.phoneNo,
+            },
+            {
+              name: groupB3.name,
+              rollNo: groupB3.rollNo,
+              branch: groupB3.branch,
+              email: groupB3.email,
+              phoneNo: groupB3.phoneNo,
+            },
+          ],
+        },
+      };
+    } else if (groupASize === 2) {
+      if (
+        groupA1.name === "" ||
+        groupA1.rollNo === "" ||
+        groupA1.branch === "" ||
+        groupA1.email === "" ||
+        groupA1.phoneNo === "" ||
+        groupA2.name === "" ||
+        groupA2.rollNo === "" ||
+        groupA2.branch === "" ||
+        groupA2.email === "" ||
+        groupA2.phoneNo === "" ||
+        groupB1.name === "" ||
+        groupB1.rollNo === "" ||
+        groupB1.branch === "" ||
+        groupB1.email === "" ||
+        groupB1.phoneNo === "" ||
+        groupB2.name === "" ||
+        groupB2.rollNo === "" ||
+        groupB2.branch === "" ||
+        groupB2.email === "" ||
+        groupB2.phoneNo === ""
+      ) {
+        toast.warn("Please Enter All Details !", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
       }
+      data = {
+        team: {
+          teamname: teamName,
+          teamsize: 4,
+          groupA: [
+            {
+              name: groupA1.name,
+              rollNo: groupA1.rollNo,
+              branch: groupA1.branch,
+              email: groupA1.email,
+              phoneNo: groupA1.phoneNo,
+            },
+            {
+              name: groupA2.name,
+              rollNo: groupA2.rollNo,
+              branch: groupA2.branch,
+              email: groupA2.email,
+              phoneNo: groupA2.phoneNo,
+            },
+          ],
+          groupB: [
+            {
+              name: groupB1.name,
+              rollNo: groupB1.rollNo,
+              branch: groupB1.branch,
+              email: groupB1.email,
+              phoneNo: groupB1.phoneNo,
+            },
+            {
+              name: groupB2.name,
+              rollNo: groupB2.rollNo,
+              branch: groupB2.branch,
+              email: groupB2.email,
+              phoneNo: groupB2.phoneNo,
+            },
+          ],
+        },
+      };
+    } else if (groupASize === 3) {
+      if (
+        groupA1.name === "" ||
+        groupA1.rollNo === "" ||
+        groupA1.branch === "" ||
+        groupA1.email === "" ||
+        groupA1.phoneNo === "" ||
+        groupA2.name === "" ||
+        groupA2.rollNo === "" ||
+        groupA2.branch === "" ||
+        groupA2.email === "" ||
+        groupA2.phoneNo === "" ||
+        groupA3.name === "" ||
+        groupA3.rollNo === "" ||
+        groupA3.branch === "" ||
+        groupA3.email === "" ||
+        groupA3.phoneNo === "" ||
+        groupB1.name === "" ||
+        groupB1.rollNo === "" ||
+        groupB1.branch === "" ||
+        groupB1.email === "" ||
+        groupB1.phoneNo === ""
+      ) {
+        toast.warn("Please Enter All Details !", {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
+      data = {
+        team: {
+          teamname: teamName,
+          teamsize: 4,
+          groupA: [
+            {
+              name: groupA1.name,
+              rollNo: groupA1.rollNo,
+              branch: groupA1.branch,
+              email: groupA1.email,
+              phoneNo: groupA1.phoneNo,
+            },
+            {
+              name: groupA2.name,
+              rollNo: groupA2.rollNo,
+              branch: groupA2.branch,
+              email: groupA2.email,
+              phoneNo: groupA2.phoneNo,
+            },
+            {
+              name: groupA3.name,
+              rollNo: groupA3.rollNo,
+              branch: groupA3.branch,
+              email: groupA3.email,
+              phoneNo: groupA3.phoneNo,
+            },
+          ],
+          groupB: [
+            {
+              name: groupB1.name,
+              rollNo: groupB1.rollNo,
+              branch: groupB1.branch,
+              email: groupB1.email,
+              phoneNo: groupB1.phoneNo,
+            },
+          ],
+        },
+      };
     }
     postData(data);
   };
@@ -455,25 +328,6 @@ const MainForm = () => {
             />
           </div>
           <div>
-            <label htmlFor="teamSize">Team Size : </label>
-            <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-              <Select
-                labelId="demo-simple-select-standard-label"
-                id="demo-simple-select-standard"
-                value={teamSize}
-                onChange={(e) => {
-                  setTeamSize(e.target.value);
-                  setGroupASize("");
-                  setGroupBSize("");
-                }}
-                label="Team Size"
-              >
-                <MenuItem value={3}>Three</MenuItem>
-                <MenuItem value={4}>Four</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-          <div>
             <label htmlFor="GroupASize">Group A Size : </label>
             <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
               <Select
@@ -482,13 +336,13 @@ const MainForm = () => {
                 value={groupASize}
                 onChange={(e) => {
                   setGroupASize(e.target.value);
-                  setGroupBSize(teamSize - e.target.value);
+                  setGroupBSize(4 - e.target.value);
                 }}
                 label="Group A Size"
               >
                 <MenuItem value={1}>One</MenuItem>
                 <MenuItem value={2}>Two</MenuItem>
-                {teamSize === 4 && <MenuItem value={3}>Three</MenuItem>}
+                <MenuItem value={3}>Three</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -501,13 +355,13 @@ const MainForm = () => {
                 value={groupBSize}
                 onChange={(e) => {
                   setGroupBSize(e.target.value);
-                  setGroupASize(teamSize - e.target.value);
+                  setGroupASize(4 - e.target.value);
                 }}
                 label="Group B Size"
               >
                 <MenuItem value={1}>One</MenuItem>
                 <MenuItem value={2}>Two</MenuItem>
-                {teamSize === 4 && <MenuItem value={3}>Three</MenuItem>}
+                <MenuItem value={3}>Three</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -515,12 +369,7 @@ const MainForm = () => {
         <Button
           variant="contained"
           onClick={handleClick}
-          disabled={
-            teamName === "" ||
-            teamSize === "" ||
-            groupASize === "" ||
-            groupBSize === ""
-          }
+          disabled={teamName === "" || groupASize === "" || groupBSize === ""}
         >
           Add Member Details
         </Button>
@@ -528,7 +377,6 @@ const MainForm = () => {
           groupASize >= 1 &&
           groupBSize >= 1 &&
           teamName !== "" &&
-          teamSize !== "" &&
           groupASize !== "" &&
           groupBSize !== "" && (
             <div>
@@ -783,7 +631,6 @@ const MainForm = () => {
           groupASize >= 1 &&
           groupBSize >= 1 &&
           teamName !== "" &&
-          teamSize !== "" &&
           groupASize !== "" &&
           groupBSize !== "" && (
             <div>
@@ -1019,7 +866,6 @@ const MainForm = () => {
         <div>
           {showSubmitBtn &&
             teamName !== "" &&
-            teamSize !== "" &&
             groupASize !== "" &&
             groupBSize !== "" &&
             loading && (
@@ -1034,7 +880,6 @@ const MainForm = () => {
             )}
           {showSubmitBtn &&
             teamName !== "" &&
-            teamSize !== "" &&
             groupASize !== "" &&
             groupBSize !== "" &&
             !loading && (
