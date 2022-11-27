@@ -336,19 +336,13 @@ const MainForm = () => {
           alignItems: "center",
         }}
       >
-        <img
-          id="logo"
-          src={logo}
-          alt="Logo"
-          style={{ height: "36%", marginLeft: "3%" }}
-        ></img>
+        <img id="logo" src={logo} alt="Logo" style={{ marginLeft: "3%" }}></img>
         <br className="media"></br>
         <img
           id="tech"
           src={technival}
           alt="technival_logo"
           style={{
-            height: "15%",
             marginRight: "3%",
             marginLeft: "auto",
             marginTop: "-4%",
@@ -1235,7 +1229,7 @@ const MainForm = () => {
                     }}
                   >
                     <ReCAPTCHA
-                      sitekey="6LdiBjsjAAAAAC1Tmm6mWraZYH_TuIGDAKXo5qK2"
+                      sitekey="6Ld4RDsjAAAAAG9ZmoRfRsKQlXtT5DYSjrsABbac"
                       onChange={() => {
                         setVerified(true);
                       }}

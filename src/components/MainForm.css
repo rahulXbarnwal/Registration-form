@@ -112,11 +112,12 @@ padding-bottom: 7%;
         
     }
    
-    /* #logo
-    {
-     margin-left: 50%;
-     margin-top: 10%;
-    } */
+    #logo {
+        height: 36%;
+    }
+    #tech {
+        height: 15%;
+    }
    
 }
 @media only screen and (min-width: 800px)
@@ -124,5 +125,11 @@ padding-bottom: 7%;
     .media
     {
         display:none;
+    }
+    #logo {
+        height: 55%;
+    }
+    #tech {
+        height: 23%;
     }
 }
