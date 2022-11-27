@@ -1251,7 +1251,7 @@ const MainForm = () => {
                     <ReCAPTCHA
                       sitekey="6Ld4RDsjAAAAAG9ZmoRfRsKQlXtT5DYSjrsABbac"
                       onChange={() => {
-                        setVerified(true);
+                        setVerified(!verified);
                       }}
                     />
                     {/* <div data-netlify-recaptcha="true"></div> */}
