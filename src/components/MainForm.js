@@ -86,9 +86,9 @@ const MainForm = () => {
       });
     if (res) {
       setLoading(false);
-      toast.warn("Team Successfully Registered !", {
-        position: "top-center",
-        autoClose: 2000,
+      toast.success("Team Successfully Registered !", {
+        position: "bottom-right",
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -96,6 +96,26 @@ const MainForm = () => {
         progress: undefined,
         theme: "colored",
       });
+      setTeamName("");
+      setGroupASize("");
+      setGroupBSize("");
+      setAddDetails(false);
+      setLoading(false);
+      setShowSubmitBtn(false);
+      setVerified(false);
+      const obj = {
+        name: "",
+        rollNo: "",
+        branch: "",
+        email: "",
+        phoneNo: "",
+      };
+      setGroupA1(obj);
+      setGroupA2(obj);
+      setGroupA3(obj);
+      setGroupB1(obj);
+      setGroupB2(obj);
+      setGroupB3(obj);
       navigate("/");
     }
   };
@@ -127,8 +147,8 @@ const MainForm = () => {
         groupB3.phoneNo === ""
       ) {
         toast.warn("Please Enter All Details !", {
-          position: "top-center",
-          autoClose: 2000,
+          position: "bottom-right",
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
