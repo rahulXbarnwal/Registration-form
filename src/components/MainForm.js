@@ -358,12 +358,7 @@ const MainForm = () => {
       <div id="scroll">
         <div className="rightside">
           <ToastContainer />
-          <form
-            id="maininfo"
-            onSubmit={submitHandler}
-            netlify-honeypot="bot-field"
-            data-netlify="true"
-          >
+          <form id="maininfo" onSubmit={submitHandler}>
             <div
               style={{
                 display: "flex",
@@ -1234,13 +1229,13 @@ const MainForm = () => {
                       alignItems: "center",
                     }}
                   >
-                    {/* <ReCAPTCHA
+                    <ReCAPTCHA
                       sitekey="6LdiBjsjAAAAAC1Tmm6mWraZYH_TuIGDAKXo5qK2"
                       onChange={() => {
                         setVerified(true);
                       }}
-                    /> */}
-                    <div data-netlify-recaptcha="true"></div>
+                    />
+                    {/* <div data-netlify-recaptcha="true"></div> */}
                     {!loading && (
                       <Button
                         id="but"
