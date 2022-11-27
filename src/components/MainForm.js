@@ -358,7 +358,12 @@ const MainForm = () => {
       <div id="scroll">
         <div className="rightside">
           <ToastContainer />
-          <form id="maininfo" onSubmit={submitHandler}>
+          <form
+            id="maininfo"
+            onSubmit={submitHandler}
+            data-netlify-recaptcha="true"
+            data-netlify="true"
+          >
             <div
               style={{
                 display: "flex",
