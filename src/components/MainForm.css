@@ -28,7 +28,7 @@ position: absolute;
     margin-top:1em ;
     font-weight: bold;
     font-size:170%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     
     
 }
@@ -37,12 +37,12 @@ position: absolute;
 
     font-weight: bold;
     font-size:200%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     
     
 }
 h3{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     font-weight: lighter;
     color: grey;
     padding-left: 0.5%;
@@ -54,7 +54,7 @@ h3{
 {
     color: black;
     font-size: 100%;
-    font-family: Arial, Helvetica, sans-serif;   
+    font-family: Roboto, Helvetica, sans-serif;   
 }
 .box
 {
@@ -70,7 +70,7 @@ padding-bottom: 7%;
 .det
 {
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     position: relative;
     top: 50%;
 }

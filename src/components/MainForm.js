@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
 
+import ReCAPTCHA from "react-google-recaptcha";
 import Spinner from "react-spinner-material";
 import axios from "axios";
 import logo from "../components/assests/blockchainlogo.png";
@@ -25,6 +26,7 @@ const MainForm = () => {
   const [addDetails, setAddDetails] = useState(false);
   const [loading, setLoading] = useState(false);
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
+  const [verified, setVerified] = useState(false);
   const [groupA1, setGroupA1] = useState({
     name: "",
     rollNo: "",
@@ -356,40 +358,22 @@ const MainForm = () => {
       <div id="scroll">
         <div className="rightside">
           <ToastContainer />
-          <form
-            id="maininfo"
-            onSubmit={submitHandler}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <form id="maininfo" onSubmit={submitHandler}>
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
               }}
             >
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
                 }}
               >
                 <br />
-                <h1 className="head1" style={{ textAlign: "center" }}>
-                  Team and Group Details
-                </h1>
-                <h3 style={{ textAlign: "center" }}>
-                  {" "}
-                  Fill the Team and Group details here.
-                </h3>
+                <h1 className="head1">Team and Group Details</h1>
+                <h3> Fill the Team and Group details here.</h3>
                 <div className="box">
                   <label className="labels" htmlFor="teamName">
                     Team Name:
@@ -399,6 +383,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     variant="outlined"
                     size="small"
+                    sx={{ minWidth: 230, maxWidth: 230 }}
                     value={teamName}
                     onChange={(e) => {
                       setTeamName(e.target.value);
@@ -416,7 +401,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 210 }}
+                    sx={{ minWidth: 230 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -444,7 +429,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 210 }}
+                    sx={{ minWidth: 230 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -478,6 +463,7 @@ const MainForm = () => {
               </Button>
             )}
             <br />
+            <br />
             {addDetails &&
               groupASize >= 1 &&
               groupBSize >= 1 &&
@@ -488,24 +474,16 @@ const MainForm = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
                   }}
                 >
-                  <h1 className="head1" style={{ textAlign: "center" }}>
-                    Team Members Details
-                  </h1>
-                  <h3 style={{ textAlign: "center" }}>
-                    {" "}
-                    Fill the details of the team members here.
-                  </h3>
+                  <h1 className="head1">Team Members Details</h1>
+                  <h3> Fill the details of the team members here.</h3>
                   <h1 className="head2">Group A details :</h1>
                   <br />
                   <div
                     style={{
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "center",
                     }}
                   >
                     <h3 className="mem">Member 1 : </h3>
@@ -620,7 +598,6 @@ const MainForm = () => {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
                       }}
                     >
                       <h3 className="mem">Member 2 : </h3>
@@ -736,10 +713,9 @@ const MainForm = () => {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
                       }}
                     >
-                      <h3>Member 3 : </h3>
+                      <h3 className="mem">Member 3 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
                         Name :{" "}
@@ -859,12 +835,16 @@ const MainForm = () => {
                   style={{
                     display: "flex",
                     flexDirection: "column",
-                    justifyContent: "center",
                   }}
                 >
                   <h1 className="head2">Group B details :</h1>
                   <br />
-                  <div>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     <h3 className="mem">Member 1 : </h3>
                     <br />
                     <label className="det" htmlFor="name">
@@ -899,6 +879,8 @@ const MainForm = () => {
                           else if (str === "030") val = "EN";
                           else if (str === "040") val = "ME";
                           else if (str === "000") val = "CE";
+                          else if (str === "014") val = "MCA";
+                          else if (str === "070") val = "MBA";
                           setGroupB1({
                             ...groupB1,
                             rollNo: e.target.value,
@@ -935,6 +917,8 @@ const MainForm = () => {
                         <MenuItem value={"EN"}>EN</MenuItem>
                         <MenuItem value={"ME"}>ME</MenuItem>
                         <MenuItem value={"CE"}>CE</MenuItem>
+                        <MenuItem value={"MCA"}>MCA</MenuItem>
+                        <MenuItem value={"MBA"}>MBA</MenuItem>
                       </Select>
                     </FormControl>
                     <br className="media"></br>
@@ -971,7 +955,6 @@ const MainForm = () => {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
                       }}
                     >
                       <h3 className="mem">Member 2 : </h3>
@@ -1008,6 +991,8 @@ const MainForm = () => {
                             else if (str === "040") val = "ME";
                             else if (str === "030") val = "EN";
                             else if (str === "000") val = "CE";
+                            else if (str === "014") val = "MCA";
+                            else if (str === "070") val = "MBA";
                             setGroupB2({
                               ...groupB2,
                               rollNo: e.target.value,
@@ -1044,6 +1029,8 @@ const MainForm = () => {
                           <MenuItem value={"EN"}>EN</MenuItem>
                           <MenuItem value={"ME"}>ME</MenuItem>
                           <MenuItem value={"CE"}>CE</MenuItem>
+                          <MenuItem value={"MCA"}>MCA</MenuItem>
+                          <MenuItem value={"MBA"}>MBA</MenuItem>
                         </Select>
                       </FormControl>
                       <br className="media"></br>
@@ -1081,10 +1068,9 @@ const MainForm = () => {
                       style={{
                         display: "flex",
                         flexDirection: "column",
-                        justifyContent: "center",
                       }}
                     >
-                      <h3>Member 3 : </h3>
+                      <h3 className="mem">Member 3 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
                         Name :{" "}
@@ -1118,6 +1104,8 @@ const MainForm = () => {
                             else if (str === "040") val = "ME";
                             else if (str === "030") val = "EN";
                             else if (str === "000") val = "CE";
+                            else if (str === "014") val = "MCA";
+                            else if (str === "070") val = "MBA";
                             setGroupB3({
                               ...groupB3,
                               rollNo: e.target.value,
@@ -1154,6 +1142,8 @@ const MainForm = () => {
                           <MenuItem value={"EN"}>EN</MenuItem>
                           <MenuItem value={"ME"}>ME</MenuItem>
                           <MenuItem value={"CE"}>CE</MenuItem>
+                          <MenuItem value={"MCA"}>MCA</MenuItem>
+                          <MenuItem value={"MBA"}>MBA</MenuItem>
                         </Select>
                       </FormControl>
                       <br className="media"></br>
@@ -1192,31 +1182,58 @@ const MainForm = () => {
               style={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
               }}
             >
               {showSubmitBtn &&
                 teamName !== "" &&
                 groupASize !== "" &&
-                groupBSize !== "" &&
-                loading && (
-                  <Button variant="contained" type="submit">
-                    <Spinner
-                      radius={30}
-                      color={"#FFFFFF"}
-                      stroke={3}
-                      visible={true}
+                groupBSize !== "" && (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ReCAPTCHA
+                      sitekey="6LdiBjsjAAAAAC1Tmm6mWraZYH_TuIGDAKXo5qK2"
+                      onChange={() => {
+                        setVerified(true);
+                      }}
                     />
-                  </Button>
-                )}
-              {showSubmitBtn &&
-                teamName !== "" &&
-                groupASize !== "" &&
-                groupBSize !== "" &&
-                !loading && (
-                  <Button id="but" variant="contained" type="submit">
-                    Submit
-                  </Button>
+                    {!loading && (
+                      <Button
+                        id="but"
+                        variant="contained"
+                        type="submit"
+                        style={{ width: "37%" }}
+                        disabled={!verified}
+                      >
+                        Submit
+                      </Button>
+                    )}
+                    {loading && (
+                      <Button
+                        id="but"
+                        variant="contained"
+                        type="submit"
+                        style={{
+                          width: "37%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Spinner
+                          radius={30}
+                          color={"#FFFFFF"}
+                          stroke={3}
+                          visible={true}
+                        />
+                      </Button>
+                    )}
+                  </div>
                 )}
             </div>
           </form>
