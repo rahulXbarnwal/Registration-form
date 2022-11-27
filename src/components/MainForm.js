@@ -358,7 +358,12 @@ const MainForm = () => {
       <div id="scroll">
         <div className="rightside">
           <ToastContainer />
-          <form id="maininfo" onSubmit={submitHandler}>
+          <form
+            id="maininfo"
+            onSubmit={submitHandler}
+            netlify-honeypot="bot-field"
+            data-netlify="true"
+          >
             <div
               style={{
                 display: "flex",
@@ -383,6 +388,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     variant="outlined"
                     size="small"
+                    name="teamName"
                     sx={{ minWidth: 230, maxWidth: 230 }}
                     value={teamName}
                     onChange={(e) => {
@@ -406,6 +412,7 @@ const MainForm = () => {
                     <Select
                       labelId="demo-simple-select-standard-label"
                       id="demo-simple-select-standard"
+                      name="groupASize"
                       value={groupASize}
                       onChange={(e) => {
                         setGroupASize(e.target.value);
@@ -435,6 +442,7 @@ const MainForm = () => {
                       labelId="demo-simple-select-standard-label"
                       id="demo-simple-select-standard"
                       value={groupBSize}
+                      name="groupBSize"
                       onChange={(e) => {
                         setGroupBSize(e.target.value);
                         setGroupASize(4 - e.target.value);
@@ -494,6 +502,7 @@ const MainForm = () => {
                     <TextField
                       id="outlined-basic"
                       size="small"
+                      name="groupA1name"
                       variant="outlined"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupA1.name}
@@ -508,6 +517,7 @@ const MainForm = () => {
                     <TextField
                       id="outlined-basic"
                       size="small"
+                      name="groupA1rollNo"
                       variant="outlined"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupA1.rollNo}
@@ -550,6 +560,7 @@ const MainForm = () => {
                       <Select
                         labelId="demo-simple-select-standard-label"
                         id="demo-simple-select-standard"
+                        name="groupA1branch"
                         value={groupA1.branch}
                         onChange={(e) => {
                           setGroupA1({ ...groupA1, branch: e.target.value });
@@ -571,6 +582,7 @@ const MainForm = () => {
                     <TextField
                       id="outlined-basic"
                       size="small"
+                      name="groupA1email"
                       variant="outlined"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupA1.email}
@@ -585,6 +597,7 @@ const MainForm = () => {
                     <TextField
                       id="outlined-basic"
                       size="small"
+                      name="groupA1phoneNo"
                       variant="outlined"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupA1.phoneNo}
@@ -608,6 +621,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupA2name"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA2.name}
@@ -623,6 +637,7 @@ const MainForm = () => {
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
+                        name="groupA2rollNo"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA2.rollNo}
                         onChange={(e) => {
@@ -664,6 +679,7 @@ const MainForm = () => {
                         <Select
                           labelId="demo-simple-select-standard-label"
                           id="demo-simple-select-standard"
+                          name="groupA2branch"
                           value={groupA2.branch}
                           onChange={(e) => {
                             setGroupA2({ ...groupA2, branch: e.target.value });
@@ -686,6 +702,7 @@ const MainForm = () => {
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
+                        name="groupA2email"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA2.email}
                         onChange={(e) =>
@@ -699,6 +716,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupA2phoneNo"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA2.phoneNo}
@@ -723,6 +741,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupA3name"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA3.name}
@@ -737,6 +756,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupA3rollNo"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA3.rollNo}
@@ -779,6 +799,7 @@ const MainForm = () => {
                         <Select
                           labelId="demo-simple-select-standard-label"
                           id="demo-simple-select-standard"
+                          name="groupA3branch"
                           value={groupA3.branch}
                           onChange={(e) => {
                             setGroupA3({ ...groupA3, branch: e.target.value });
@@ -800,6 +821,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupA3email"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA3.email}
@@ -814,6 +836,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupA3phoneNo"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupA3.phoneNo}
@@ -853,6 +876,7 @@ const MainForm = () => {
                     <TextField
                       id="outlined-basic"
                       size="small"
+                      name="groupB1name"
                       variant="outlined"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupB1.name}
@@ -868,6 +892,7 @@ const MainForm = () => {
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
+                      name="groupB1rollNo"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupB1.rollNo}
                       onChange={(e) => {
@@ -908,6 +933,7 @@ const MainForm = () => {
                       <Select
                         labelId="demo-simple-select-standard-label"
                         id="demo-simple-select-standard"
+                        name="groupB1branch"
                         value={groupB1.branch}
                         onChange={(e) => {
                           setGroupB1({ ...groupB1, branch: e.target.value });
@@ -929,6 +955,7 @@ const MainForm = () => {
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
+                      name="groupB1email"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupB1.email}
                       onChange={(e) =>
@@ -943,6 +970,7 @@ const MainForm = () => {
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
+                      name="groupB1phoneNo"
                       sx={{ mb: 4, pr: 2 }}
                       value={groupB1.phoneNo}
                       onChange={(e) =>
@@ -966,6 +994,7 @@ const MainForm = () => {
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
+                        name="groupB2name"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB2.name}
                         onChange={(e) =>
@@ -979,6 +1008,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupB2rollNo"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB2.rollNo}
@@ -1020,6 +1050,7 @@ const MainForm = () => {
                         <Select
                           labelId="demo-simple-select-standard-label"
                           id="demo-simple-select-standard"
+                          name="groupB2branch"
                           value={groupB2.branch}
                           onChange={(e) => {
                             setGroupB2({ ...groupB2, branch: e.target.value });
@@ -1041,6 +1072,7 @@ const MainForm = () => {
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
+                        name="groupB2email"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB2.email}
                         onChange={(e) =>
@@ -1054,6 +1086,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupB2phoneNo"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB2.phoneNo}
@@ -1078,6 +1111,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupB3name"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB3.name}
@@ -1091,6 +1125,7 @@ const MainForm = () => {
                       </label>
                       <TextField
                         id="outlined-basic"
+                        name="groupB3rollNo"
                         size="small"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
@@ -1132,6 +1167,7 @@ const MainForm = () => {
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
+                          name="groupB3branch"
                           id="demo-simple-select-standard"
                           value={groupB3.branch}
                           onChange={(e) => {
@@ -1153,6 +1189,7 @@ const MainForm = () => {
                       <TextField
                         id="outlined-basic"
                         size="small"
+                        name="groupB3email"
                         variant="outlined"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB3.email}
@@ -1168,6 +1205,7 @@ const MainForm = () => {
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
+                        name="groupB3phoneNo"
                         sx={{ mb: 4, pr: 2 }}
                         value={groupB3.phoneNo}
                         onChange={(e) =>
@@ -1196,12 +1234,13 @@ const MainForm = () => {
                       alignItems: "center",
                     }}
                   >
-                    <ReCAPTCHA
+                    {/* <ReCAPTCHA
                       sitekey="6LdiBjsjAAAAAC1Tmm6mWraZYH_TuIGDAKXo5qK2"
                       onChange={() => {
                         setVerified(true);
                       }}
-                    />
+                    /> */}
+                    <div data-netlify-recaptcha="true"></div>
                     {!loading && (
                       <Button
                         id="but"
