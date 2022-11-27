@@ -1,0 +1,128 @@
+#scroll{
+position: absolute;
+    left:30%;
+    top:20%;
+    right: 20%;
+}
+#leftside
+{
+    height: 15%;
+    background-color: #1788cc;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100vw;
+    overflow-wrap: normal;
+
+}
+#xyz
+{ height: 100vh;
+}
+#rightside
+{
+    height: 100%;
+    overflow: auto;
+}
+
+.head2
+{
+    margin-top:1em ;
+    font-weight: bold;
+    font-size:170%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+.head1
+{
+
+    font-weight: bold;
+    font-size:200%;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    
+}
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    color: grey;
+    padding-left: 0.5%;
+    padding-top: 3px;
+
+}
+
+.labels
+{
+    color: black;
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+.box
+{
+    padding-top: 7%;
+padding-bottom: 7%;
+}
+
+#memberdetail,#but
+{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.det
+{
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    top: 50%;
+}
+.mem
+{
+    color: black;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-weight: bold;
+}
+/* #logo{
+    height: 20%;
+    width: auto;
+    padding-top: 2.5%;
+    padding-left: 2vw;
+
+} */
+#tech
+{
+    height: 12%;
+    width: auto;
+    padding-top: 5%;
+    padding-left: 5%;
+    right: 7%;
+    margin-left: 10vw;
+}
+
+@media only screen and (max-width: 800px) {
+    #leftside
+    {
+        height: 20%;
+        width: 100vw;
+    }
+    #scroll
+    {
+        left:5%;
+        top: 23%;
+        right: 5%;
+        
+    }
+   
+    /* #logo
+    {
+     margin-left: 50%;
+     margin-top: 10%;
+    } */
+   
+}
+@media only screen and (min-width: 800px)
+{
+    .media
+    {
+        display:none;
+    }
+}
