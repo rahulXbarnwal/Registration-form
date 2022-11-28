@@ -118,6 +118,11 @@ padding-bottom: 7%;
     #tech {
         height: 15%;
     }
+    #component-helper-text {
+        color: red;
+        margin-left: 1.5%;
+        margin-top: -9.5%;
+    }
    
 }
 @media only screen and (min-width: 800px)
@@ -131,5 +136,10 @@ padding-bottom: 7%;
     }
     #tech {
         height: 23%;
+    }
+    #component-helper-text {
+        margin-top: -4%;
+        color: red;
+        margin-left: 1%;
     }
 }
