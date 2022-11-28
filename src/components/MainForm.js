@@ -535,8 +535,7 @@ const MainForm = () => {
                 }}
               >
                 <br />
-                <h1 className="head1">Team and Group Details</h1>
-                <h3> Fill the Team and Group details here.</h3>
+                <h1 className="head1">Team Details</h1>
                 <div className="box">
                   <label className="labels" htmlFor="teamName">
                     Team Name:
@@ -565,7 +564,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 230 }}
+                    sx={{ minWidth: 230, mb: 4, pr: 2 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -594,7 +593,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 230 }}
+                    sx={{ minWidth: 230, mb: 4, pr: 2 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -643,7 +642,6 @@ const MainForm = () => {
                   }}
                 >
                   <h1 className="head1">Team Members Details</h1>
-                  <h3> Fill the details of the team members here.</h3>
                   <h1 className="head2">Group A details :</h1>
                   <br />
                   <div
