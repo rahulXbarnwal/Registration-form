@@ -4,6 +4,7 @@ import "./MainForm.css";
 import {
   Button,
   FormControl,
+  FormHelperText,
   MenuItem,
   Select,
   TextField,
@@ -27,6 +28,35 @@ const MainForm = () => {
   const [loading, setLoading] = useState(false);
   const [showSubmitBtn, setShowSubmitBtn] = useState(false);
   const [verified, setVerified] = useState(false);
+  const [isInvalid, setIsInvalid] = useState({
+    groupA1name: false,
+    groupA2name: false,
+    groupA3name: false,
+    groupB1name: false,
+    groupB2name: false,
+    groupB3name: false,
+
+    groupA1rollNo: false,
+    groupA2rollNo: false,
+    groupA3rollNo: false,
+    groupB1rollNo: false,
+    groupB2rollNo: false,
+    groupB3rollNo: false,
+
+    groupA1email: false,
+    groupA2email: false,
+    groupA3email: false,
+    groupB1email: false,
+    groupB2email: false,
+    groupB3email: false,
+
+    groupA1phone: false,
+    groupA2phone: false,
+    groupA3phone: false,
+    groupB1phone: false,
+    groupB2phone: false,
+    groupB3phone: false,
+  });
   const [groupA1, setGroupA1] = useState({
     name: "",
     rollNo: "",
@@ -70,6 +100,22 @@ const MainForm = () => {
     phoneNo: "",
   });
 
+  const isValidName = (name) => {
+    return /^[A-Za-z\s]*$/.test(name);
+  };
+
+  const isValidRollNo = (roll) => {
+    return /^[0-9]+$/.test(roll);
+  };
+
+  const isValidEmail = (email) => {
+    return email.includes("@akgec.ac.in");
+  };
+
+  const isValidMobile = (mobile) => {
+    return /^[0-9]{10}$/.test(mobile);
+  };
+
   const handleClick = () => {
     setAddDetails(true);
     setShowSubmitBtn(true);
@@ -81,8 +127,20 @@ const MainForm = () => {
     const res = await axios
       .post("https://temp-app-studentapi.herokuapp.com/api/v1/student", data)
       .catch((err) => {
-        console.log(err);
         setLoading(false);
+        toast.error(
+          "Someone is already registered from your team or Invalid Details",
+          {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          }
+        );
       });
     if (res) {
       setTeamName("");
@@ -145,7 +203,37 @@ const MainForm = () => {
         groupB3.email === "" ||
         groupB3.phoneNo === ""
       ) {
-        toast.warn("Please Enter All Details !", {
+        toast.error("Please Enter All Details !", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
+      if (
+        isInvalid.groupA1name ||
+        isInvalid.groupA1rollNo ||
+        isInvalid.groupA1email ||
+        isInvalid.groupA1phone ||
+        isInvalid.groupB1name ||
+        isInvalid.groupB1rollNo ||
+        isInvalid.groupB1email ||
+        isInvalid.groupB1phone ||
+        isInvalid.groupB2name ||
+        isInvalid.groupB2rollNo ||
+        isInvalid.groupB2email ||
+        isInvalid.groupB2phone ||
+        isInvalid.groupB3name ||
+        isInvalid.groupB3rollNo ||
+        isInvalid.groupB3email ||
+        isInvalid.groupB3phone
+      ) {
+        toast.error("Please Enter Valid details !", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -160,7 +248,6 @@ const MainForm = () => {
       data = {
         team: {
           teamname: teamName,
-          teamsize: 4,
           groupA: [
             {
               name: groupA1.name,
@@ -218,9 +305,39 @@ const MainForm = () => {
         groupB2.email === "" ||
         groupB2.phoneNo === ""
       ) {
-        toast.warn("Please Enter All Details !", {
+        toast.error("Please Enter All Details !", {
           position: "top-center",
           autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
+      if (
+        isInvalid.groupA1name ||
+        isInvalid.groupA1rollNo ||
+        isInvalid.groupA1email ||
+        isInvalid.groupA1phone ||
+        isInvalid.groupA2name ||
+        isInvalid.groupA2rollNo ||
+        isInvalid.groupA2email ||
+        isInvalid.groupA2phone ||
+        isInvalid.groupB1name ||
+        isInvalid.groupB1rollNo ||
+        isInvalid.groupB1email ||
+        isInvalid.groupB1phone ||
+        isInvalid.groupB2name ||
+        isInvalid.groupB2rollNo ||
+        isInvalid.groupB2email ||
+        isInvalid.groupB2phone
+      ) {
+        toast.error("Please Enter Valid details !", {
+          position: "top-center",
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -233,7 +350,6 @@ const MainForm = () => {
       data = {
         team: {
           teamname: teamName,
-          teamsize: 4,
           groupA: [
             {
               name: groupA1.name,
@@ -291,9 +407,39 @@ const MainForm = () => {
         groupB1.email === "" ||
         groupB1.phoneNo === ""
       ) {
-        toast.warn("Please Enter All Details !", {
+        toast.error("Please Enter All Details !", {
           position: "top-center",
           autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
+      if (
+        isInvalid.groupA1name ||
+        isInvalid.groupA1rollNo ||
+        isInvalid.groupA1email ||
+        isInvalid.groupA1phone ||
+        isInvalid.groupA2name ||
+        isInvalid.groupA2rollNo ||
+        isInvalid.groupA2email ||
+        isInvalid.groupA2phone ||
+        isInvalid.groupA3name ||
+        isInvalid.groupA3rollNo ||
+        isInvalid.groupA3email ||
+        isInvalid.groupA3phone ||
+        isInvalid.groupB1name ||
+        isInvalid.groupB1rollNo ||
+        isInvalid.groupB1email ||
+        isInvalid.groupB1phone
+      ) {
+        toast.error("Please Enter Valid details !", {
+          position: "top-center",
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -306,7 +452,6 @@ const MainForm = () => {
       data = {
         team: {
           teamname: teamName,
-          teamsize: 4,
           groupA: [
             {
               name: groupA1.name,
@@ -344,9 +489,6 @@ const MainForm = () => {
     }
     postData(data);
   };
-  // document.getElementById("memberdetail").addEventListener("click", function() {
-  //   document.getElementById("time1").style.backgroundColor="#1788cc"
-  // }) 
 
   return (
     <div id="xyz">
@@ -360,6 +502,7 @@ const MainForm = () => {
       >
         <img id="logo" src={logo} alt="Logo" style={{ marginLeft: "3%" }}></img>
         <br className="media"></br>
+        <div id="technival">
         <img
           id="tech"
           src={technival}
@@ -370,27 +513,9 @@ const MainForm = () => {
             marginTop: "-4%",
           }}
         ></img>
+        </div>
       </div>
       <div id="scroll">
-        <div className="progressBar">
-          <div id="progress">
-            <h2>Submission Timeline</h2>
-            <div id="pro">
-              <div className="item-time">
-                <div className="time" id="active">1</div>
-                <p id="para-time">Team Details</p>
-              </div>
-              <div className="item-time">
-                <div className="time" id="time1">2</div>
-                <p id="para-time">Members Info</p>
-              </div>
-              <div className="item-time">
-                <div className="time" id="time2">3</div>
-                <p className="para">Submit</p>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="rightside">
           <ToastContainer />
           <form
@@ -412,8 +537,7 @@ const MainForm = () => {
                 }}
               >
                 <br />
-                <h1 className="head1">Team and Group Details</h1>
-                <h3> Fill the Team and Group details here.</h3>
+                <h1 className="head1">Team Details</h1>
                 <div className="box">
                   <label className="labels" htmlFor="teamName">
                     Team Name:
@@ -421,11 +545,10 @@ const MainForm = () => {
                   <br></br>
                   <TextField
                     id="outlined-basic"
-                    variant="outlined"
                     size="small"
+                    variant="outlined"
                     name="teamName"
-                    // sx={{ minWidth: 230, maxWidth: 230 }}
-                    sx={{ width: 600 }}
+                    sx={{ minWidth: 230, maxWidth: 230 }}
                     value={teamName}
                     onChange={(e) => {
                       setTeamName(e.target.value);
@@ -434,7 +557,7 @@ const MainForm = () => {
                 </div>
               </div>
               <div id="tsize">
-                <div className="select-team">
+                <div>
                   <label className="labels" htmlFor="GroupASize">
                     Group A Size :{" "}
                   </label>
@@ -443,7 +566,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 293 }}
+                    sx={{ minWidth: 230, mb: 4, pr: 2 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -472,7 +595,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 293 }}
+                    sx={{ minWidth: 230, mb: 4, pr: 2 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -521,7 +644,6 @@ const MainForm = () => {
                   }}
                 >
                   <h1 className="head1">Team Members Details</h1>
-                  <h3> Fill the details of the team members here.</h3>
                   <h1 className="head2">Group A details :</h1>
                   <br />
                   <div
@@ -529,36 +651,51 @@ const MainForm = () => {
                       display: "flex",
                       flexDirection: "column",
                     }}
+                    className="memberdiv"
                   >
-                    <h3 className="mem">Member 1  </h3>
+                    <h3 className="mem">Member 1 : </h3>
                     <br />
                     <label className="det" htmlFor="name">
-                      Full Name {" "}
+                      Name :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1name"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupA1.name}
-                      onChange={(e) =>
-                        setGroupA1({ ...groupA1, name: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setGroupA1({ ...groupA1, name: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupA1name: !isValidName(e.target.value),
+                        });
+                      }}
+                      aria-describedby="component-helper-text"
                     />
+                    {isInvalid.groupA1name && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid name!
+                      </FormHelperText>
+                    )}
                     <br className="media"></br>
                     <label className="det" htmlFor="roll">
-                      Roll Number {" "}
+                      Roll No :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1rollNo"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupA1.rollNo}
                       onChange={(e) => {
                         setGroupA1({ ...groupA1, rollNo: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupA1rollNo: !isValidRollNo(e.target.value),
+                        });
                         if (e.target.value.length >= 9) {
                           let str = e.target.value.substring(6, 9);
                           let val = "";
@@ -582,16 +719,22 @@ const MainForm = () => {
                           });
                         }
                       }}
+                      aria-describedby="component-helper-text"
                     />
-                    {/* <br></br> */}
+                    {isInvalid.groupA1rollNo && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid Roll Number!
+                      </FormHelperText>
+                    )}
+                    <br></br>
                     <label className="det" htmlFor="branch">
-                      Branch {" "}
+                      Branch :{" "}
                     </label>
                     <FormControl
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2, minWidth: 120 }}
+                      sx={{ mb: 4, pr: 2, minWidth: 120 }}
                     >
                       <Select
                         labelId="demo-simple-select-standard-label"
@@ -613,34 +756,54 @@ const MainForm = () => {
                     </FormControl>
                     <br className="media"></br>
                     <label className="det" htmlFor="email">
-                      College Email {" "}
+                      College Email :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1email"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupA1.email}
-                      onChange={(e) =>
-                        setGroupA1({ ...groupA1, email: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setGroupA1({ ...groupA1, email: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupA1email: !isValidEmail(e.target.value),
+                        });
+                      }}
+                      aria-describedby="component-helper-text"
                     />
-                    {/* <br></br> */}
+                    {isInvalid.groupA1email && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid College email!
+                      </FormHelperText>
+                    )}
+                    <br></br>
                     <label className="det" htmlFor="phone">
-                      Phone Number {" "}
+                      Phone No :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1phoneNo"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupA1.phoneNo}
-                      onChange={(e) =>
-                        setGroupA1({ ...groupA1, phoneNo: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setGroupA1({ ...groupA1, phoneNo: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupA1phone: !isValidMobile(e.target.value),
+                        });
+                      }}
+                      aria-describedby="component-helper-text"
                     />
+                    {isInvalid.groupA1phone && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid Phone Number!
+                      </FormHelperText>
+                    )}
                   </div>
                   {groupASize > 1 && (
                     <div
@@ -648,36 +811,51 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 2 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Full Name {" "}
+                        Name :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA2name"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA2.name}
-                        onChange={(e) =>
-                          setGroupA2({ ...groupA2, name: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupA2({ ...groupA2, name: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA2name: !isValidName(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupA2name && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid name!
+                        </FormHelperText>
+                      )}
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll Number {" "}
+                        Roll No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupA2rollNo"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA2.rollNo}
                         onChange={(e) => {
                           setGroupA2({ ...groupA2, rollNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA2rollNo: !isValidRollNo(e.target.value),
+                          });
                           if (e.target.value.length >= 9) {
                             let str = e.target.value.substring(6, 9);
                             let val = "";
@@ -701,16 +879,22 @@ const MainForm = () => {
                             });
                           }
                         }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupA2rollNo && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Roll Number!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="branch">
-                        Branch {" "}
+                        Branch :{" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -732,34 +916,54 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email {" "}
+                        College Email :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupA2email"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA2.email}
-                        onChange={(e) =>
-                          setGroupA2({ ...groupA2, email: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupA2({ ...groupA2, email: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA2email: !isValidEmail(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupA2email && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid College email!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="phone">
-                        Phone Number {" "}
+                        Phone No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA2phoneNo"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA2.phoneNo}
-                        onChange={(e) =>
-                          setGroupA2({ ...groupA2, phoneNo: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupA2({ ...groupA2, phoneNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA2phone: !isValidMobile(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupA2phone && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Phone Number!
+                        </FormHelperText>
+                      )}
                     </div>
                   )}
                   {groupASize > 2 && (
@@ -768,36 +972,51 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 3 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Full Name {" "}
+                        Name :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3name"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA3.name}
-                        onChange={(e) =>
-                          setGroupA3({ ...groupA3, name: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupA3({ ...groupA3, name: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA3name: !isValidName(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupA3name && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid name!
+                        </FormHelperText>
+                      )}
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll Number {" "}
+                        Roll No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3rollNo"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA3.rollNo}
                         onChange={(e) => {
                           setGroupA3({ ...groupA3, rollNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA3rollNo: !isValidRollNo(e.target.value),
+                          });
                           if (e.target.value.length >= 9) {
                             let str = e.target.value.substring(6, 9);
                             let val = "";
@@ -821,16 +1040,22 @@ const MainForm = () => {
                             });
                           }
                         }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupA3rollNo && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Roll Number!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="branch">
-                        Branch {" "}
+                        Branch :{" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -852,34 +1077,54 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email {" "}
+                        College Email :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3email"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA3.email}
-                        onChange={(e) =>
-                          setGroupA3({ ...groupA3, email: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupA3({ ...groupA3, email: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA3email: !isValidEmail(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupA3email && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid College email!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="phone">
-                        Phone Number {" "}
+                        Phone No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3phoneNo"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupA3.phoneNo}
-                        onChange={(e) =>
-                          setGroupA3({ ...groupA3, phoneNo: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupA3({ ...groupA3, phoneNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupA3phone: !isValidMobile(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupA3phone && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Phone Number!
+                        </FormHelperText>
+                      )}
                     </div>
                   )}
                 </div>
@@ -903,36 +1148,51 @@ const MainForm = () => {
                       display: "flex",
                       flexDirection: "column",
                     }}
+                    className="memberdiv"
                   >
                     <h3 className="mem">Member 1 : </h3>
                     <br />
                     <label className="det" htmlFor="name">
-                      Full Name {" "}
+                      Name :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupB1name"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupB1.name}
-                      onChange={(e) =>
-                        setGroupB1({ ...groupB1, name: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setGroupB1({ ...groupB1, name: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupB1name: !isValidName(e.target.value),
+                        });
+                      }}
+                      aria-describedby="component-helper-text"
                     />
+                    {isInvalid.groupB1name && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid name!
+                      </FormHelperText>
+                    )}
                     <br className="media"></br>
                     <label className="det" htmlFor="roll">
-                      Roll Number {" "}
+                      Roll No :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
                       name="groupB1rollNo"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupB1.rollNo}
                       onChange={(e) => {
                         setGroupB1({ ...groupB1, rollNo: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupB1rollNo: !isValidRollNo(e.target.value),
+                        });
                         if (e.target.value.length >= 9) {
                           let str = e.target.value.substring(6, 9);
                           let val = "";
@@ -955,16 +1215,22 @@ const MainForm = () => {
                           });
                         }
                       }}
+                      aria-describedby="component-helper-text"
                     />
-                    {/* <br></br> */}
+                    {isInvalid.groupB1rollNo && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid Roll Number!
+                      </FormHelperText>
+                    )}
+                    <br></br>
                     <label className="det" htmlFor="branch">
-                      Branch {" "}
+                      Branch :{" "}
                     </label>
                     <FormControl
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
-                      sx={{ mb: 2, pr: 2, minWidth: 120 }}
+                      sx={{ mb: 4, pr: 2, minWidth: 120 }}
                     >
                       <Select
                         labelId="demo-simple-select-standard-label"
@@ -985,34 +1251,54 @@ const MainForm = () => {
                     </FormControl>
                     <br className="media"></br>
                     <label className="det" htmlFor="email">
-                      College Email {" "}
+                      College Email :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
                       name="groupB1email"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupB1.email}
-                      onChange={(e) =>
-                        setGroupB1({ ...groupB1, email: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setGroupB1({ ...groupB1, email: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupB1email: !isValidEmail(e.target.value),
+                        });
+                      }}
+                      aria-describedby="component-helper-text"
                     />
-                    {/* <br></br> */}
+                    {isInvalid.groupB1email && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid College email!
+                      </FormHelperText>
+                    )}
+                    <br></br>
                     <label className="det" htmlFor="phone">
-                      Phone Number {" "}
+                      Phone No :{" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
                       name="groupB1phoneNo"
-                      sx={{ mb: 2, pr: 2 }}
+                      sx={{ mb: 4, pr: 2 }}
                       value={groupB1.phoneNo}
-                      onChange={(e) =>
-                        setGroupB1({ ...groupB1, phoneNo: e.target.value })
-                      }
+                      onChange={(e) => {
+                        setGroupB1({ ...groupB1, phoneNo: e.target.value });
+                        setIsInvalid({
+                          ...isInvalid,
+                          groupB1phone: !isValidMobile(e.target.value),
+                        });
+                      }}
+                      aria-describedby="component-helper-text"
                     />
+                    {isInvalid.groupB1phone && (
+                      <FormHelperText id="component-helper-text">
+                        Invalid Phone Number!
+                      </FormHelperText>
+                    )}
                   </div>
                   {groupBSize > 1 && (
                     <div
@@ -1020,36 +1306,51 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 2 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        FullName {" "}
+                        Name :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupB2name"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB2.name}
-                        onChange={(e) =>
-                          setGroupB2({ ...groupB2, name: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupB2({ ...groupB2, name: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB2name: !isValidName(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupB2name && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid name!
+                        </FormHelperText>
+                      )}
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll Number {" "}
+                        Roll No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB2rollNo"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB2.rollNo}
                         onChange={(e) => {
                           setGroupB2({ ...groupB2, rollNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB2rollNo: !isValidRollNo(e.target.value),
+                          });
                           if (e.target.value.length >= 9) {
                             let str = e.target.value.substring(6, 9);
                             let val = "";
@@ -1072,16 +1373,22 @@ const MainForm = () => {
                             });
                           }
                         }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupB2rollNo && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Roll Number!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="branch">
-                        Branch {" "}
+                        Branch :{" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -1102,34 +1409,54 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email {" "}
+                        College Email :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupB2email"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB2.email}
-                        onChange={(e) =>
-                          setGroupB2({ ...groupB2, email: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupB2({ ...groupB2, email: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB2email: !isValidEmail(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupB2email && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid College email!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="phone">
-                        Phone Number {" "}
+                        Phone No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB2phoneNo"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB2.phoneNo}
-                        onChange={(e) =>
-                          setGroupB2({ ...groupB2, phoneNo: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupB2({ ...groupB2, phoneNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB2phone: !isValidMobile(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupB2phone && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Phone Number!
+                        </FormHelperText>
+                      )}
                     </div>
                   )}
                   {groupBSize > 2 && (
@@ -1138,36 +1465,51 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 3 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Full Name {" "}
+                        Name :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB3name"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB3.name}
-                        onChange={(e) =>
-                          setGroupB3({ ...groupB3, name: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupB3({ ...groupB3, name: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB3name: !isValidName(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupB3name && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid name!
+                        </FormHelperText>
+                      )}
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll Number {" "}
+                        Roll No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
-                        name="groupB3rollNo"
                         size="small"
+                        name="groupB3rollNo"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB3.rollNo}
                         onChange={(e) => {
                           setGroupB3({ ...groupB3, rollNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB3rollNo: !isValidRollNo(e.target.value),
+                          });
                           if (e.target.value.length >= 9) {
                             let str = e.target.value.substring(6, 9);
                             let val = "";
@@ -1190,16 +1532,22 @@ const MainForm = () => {
                             });
                           }
                         }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupB3rollNo && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Roll Number!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="branch">
-                        Branch {" "}
+                        Branch :{" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -1220,34 +1568,54 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email {" "}
+                        College Email :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB3email"
                         variant="outlined"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB3.email}
-                        onChange={(e) =>
-                          setGroupB3({ ...groupB3, email: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupB3({ ...groupB3, email: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB3email: !isValidEmail(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
-                      {/* <br></br> */}
+                      {isInvalid.groupB3email && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid College email!
+                        </FormHelperText>
+                      )}
+                      <br></br>
                       <label className="det" htmlFor="phone">
-                        Phone Number {" "}
+                        Phone No :{" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupB3phoneNo"
-                        sx={{ mb: 2, pr: 2 }}
+                        sx={{ mb: 4, pr: 2 }}
                         value={groupB3.phoneNo}
-                        onChange={(e) =>
-                          setGroupB3({ ...groupB3, phoneNo: e.target.value })
-                        }
+                        onChange={(e) => {
+                          setGroupB3({ ...groupB3, phoneNo: e.target.value });
+                          setIsInvalid({
+                            ...isInvalid,
+                            groupB3phone: !isValidMobile(e.target.value),
+                          });
+                        }}
+                        aria-describedby="component-helper-text"
                       />
+                      {isInvalid.groupB3phone && (
+                        <FormHelperText id="component-helper-text">
+                          Invalid Phone Number!
+                        </FormHelperText>
+                      )}
                     </div>
                   )}
                 </div>
