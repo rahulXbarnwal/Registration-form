@@ -10,17 +10,18 @@ import {
   TextField,
 } from "@mui/material";
 import { ToastContainer, toast } from "react-toastify";
+import { useRef, useState } from "react";
 
 import ReCAPTCHA from "react-google-recaptcha";
 import Spinner from "react-spinner-material";
 import axios from "axios";
 import logo from "../components/assests/blockchainlogo.png";
-import technival from "../components/assests/Technival.png";
+import technival from "../components/assests/technivalimg.png";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const MainForm = () => {
   const navigate = useNavigate();
+  const recaptchaRef = useRef(null);
   const [teamName, setTeamName] = useState("");
   const [groupASize, setGroupASize] = useState("");
   const [groupBSize, setGroupBSize] = useState("");
@@ -122,10 +123,16 @@ const MainForm = () => {
   };
 
   const postData = async (data) => {
+    const captchaToken = await recaptchaRef.current.getValue();
+    recaptchaRef.current.reset();
     console.log(data);
+    console.log(captchaToken);
     setLoading(true);
     const res = await axios
-      .post("https://temp-app-studentapi.herokuapp.com/api/v1/student", data)
+      .post("https://temp-app-studentapi.herokuapp.com/api/v1/student", {
+        data,
+        captchaToken,
+      })
       .catch((err) => {
         setLoading(false);
         toast.error(
@@ -487,12 +494,13 @@ const MainForm = () => {
         },
       };
     }
+
     postData(data);
   };
 
   return (
     <div id="xyz">
-      <div
+      {/*<div
         id="leftside"
         style={{
           display: "flex",
@@ -512,8 +520,20 @@ const MainForm = () => {
             marginTop: "-4%",
           }}
         ></img>
+        </div>*/}
+      <div className="headerouter">
+        <div className="headerinner">
+          <div className="headerinnerchild">
+            <div className="headerinnerchild2">
+              <img src={logo} alt="brllogo" height="100%" width="100%" />
+            </div>
+          </div>
+          <div className="headerinnerchild1">
+            <img src={technival} alt="brllogo" height="100%" width="100%" />
+          </div>
+        </div>
       </div>
-      <div id="scroll">
+      <div id="scroll" style={{ minHeight: "85vh" }}>
         <div className="rightside">
           <ToastContainer />
           <form
@@ -537,21 +557,25 @@ const MainForm = () => {
                 <br />
                 <h1 className="head1">Team Details</h1>
                 <div className="box">
-                  <label className="labels" htmlFor="teamName">
-                    Team Name:
-                  </label>
-                  <br></br>
-                  <TextField
-                    id="outlined-basic"
-                    size="small"
-                    variant="outlined"
-                    name="teamName"
-                    sx={{ minWidth: 230, maxWidth: 230 }}
-                    value={teamName}
-                    onChange={(e) => {
-                      setTeamName(e.target.value);
-                    }}
-                  />
+                  <div style={{ width: "100%" }}>
+                    <div style={{ width: "100" }}>
+                      <label className="labels" htmlFor="teamName">
+                        Team Name:
+                      </label>
+                      <br></br>
+                      <TextField
+                        id="outlined-basic"
+                        size="small"
+                        variant="outlined"
+                        name="teamName"
+                        value={teamName}
+                        style={{ width: "100%", boxSizing: "border-box" }}
+                        onChange={(e) => {
+                          setTeamName(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               <div id="tsize">
@@ -565,6 +589,7 @@ const MainForm = () => {
                     size="small"
                     variant="outlined"
                     sx={{ minWidth: 230, mb: 4, pr: 2 }}
+                    style={{ width: "100%", boxSizing: "border-box" }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -594,6 +619,7 @@ const MainForm = () => {
                     size="small"
                     variant="outlined"
                     sx={{ minWidth: 230, mb: 4, pr: 2 }}
+                    style={{ width: "100%", boxSizing: "border-box" }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -616,19 +642,26 @@ const MainForm = () => {
             </div>
             <br />
             {!addDetails && (
-              <Button
-                id="memberdetail"
-                variant="contained"
-                onClick={handleClick}
-                disabled={
-                  teamName === "" || groupASize === "" || groupBSize === ""
-                }
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
               >
-                Add Member Details
-              </Button>
+                <Button
+                  id="memberdetail"
+                  variant="contained"
+                  onClick={handleClick}
+                  style={{ backgroundColor: "#132647", color: "white" }}
+                  disabled={
+                    teamName === "" || groupASize === "" || groupBSize === ""
+                  }
+                >
+                  Add Member Details
+                </Button>
+              </div>
             )}
-            <br />
-            <br />
             {addDetails &&
               groupASize >= 1 &&
               groupBSize >= 1 &&
@@ -1637,6 +1670,7 @@ const MainForm = () => {
                     }}
                   >
                     <ReCAPTCHA
+                      ref={recaptchaRef}
                       sitekey="6Ld4RDsjAAAAAG9ZmoRfRsKQlXtT5DYSjrsABbac"
                       onChange={() => {
                         setVerified(!verified);
@@ -1648,7 +1682,11 @@ const MainForm = () => {
                         id="but"
                         variant="contained"
                         type="submit"
-                        style={{ width: "37%" }}
+                        style={{
+                          width: "37%",
+                          backgroundColor: "#132647",
+                          color: "white",
+                        }}
                         disabled={!verified}
                       >
                         Submit
