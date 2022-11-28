@@ -344,6 +344,9 @@ const MainForm = () => {
     }
     postData(data);
   };
+  // document.getElementById("memberdetail").addEventListener("click", function() {
+  //   document.getElementById("time1").style.backgroundColor="#1788cc"
+  // }) 
 
   return (
     <div id="xyz">
@@ -369,6 +372,25 @@ const MainForm = () => {
         ></img>
       </div>
       <div id="scroll">
+        <div className="progressBar">
+          <div id="progress">
+            <h2>Submission Timeline</h2>
+            <div id="pro">
+              <div className="item-time">
+                <div className="time" id="active">1</div>
+                <p id="para-time">Team Details</p>
+              </div>
+              <div className="item-time">
+                <div className="time" id="time1">2</div>
+                <p id="para-time">Members Info</p>
+              </div>
+              <div className="item-time">
+                <div className="time" id="time2">3</div>
+                <p className="para">Submit</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="rightside">
           <ToastContainer />
           <form
@@ -402,7 +424,8 @@ const MainForm = () => {
                     variant="outlined"
                     size="small"
                     name="teamName"
-                    sx={{ minWidth: 230, maxWidth: 230 }}
+                    // sx={{ minWidth: 230, maxWidth: 230 }}
+                    sx={{ width: 600 }}
                     value={teamName}
                     onChange={(e) => {
                       setTeamName(e.target.value);
@@ -411,7 +434,7 @@ const MainForm = () => {
                 </div>
               </div>
               <div id="tsize">
-                <div>
+                <div className="select-team">
                   <label className="labels" htmlFor="GroupASize">
                     Group A Size :{" "}
                   </label>
@@ -420,7 +443,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 230 }}
+                    sx={{ minWidth: 293 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -449,7 +472,7 @@ const MainForm = () => {
                     id="outlined-basic"
                     size="small"
                     variant="outlined"
-                    sx={{ minWidth: 230 }}
+                    sx={{ minWidth: 293 }}
                   >
                     <Select
                       labelId="demo-simple-select-standard-label"
@@ -507,17 +530,17 @@ const MainForm = () => {
                       flexDirection: "column",
                     }}
                   >
-                    <h3 className="mem">Member 1 : </h3>
+                    <h3 className="mem">Member 1  </h3>
                     <br />
                     <label className="det" htmlFor="name">
-                      Name :{" "}
+                      Full Name {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1name"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupA1.name}
                       onChange={(e) =>
                         setGroupA1({ ...groupA1, name: e.target.value })
@@ -525,14 +548,14 @@ const MainForm = () => {
                     />
                     <br className="media"></br>
                     <label className="det" htmlFor="roll">
-                      Roll No :{" "}
+                      Roll Number {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1rollNo"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupA1.rollNo}
                       onChange={(e) => {
                         setGroupA1({ ...groupA1, rollNo: e.target.value });
@@ -560,15 +583,15 @@ const MainForm = () => {
                         }
                       }}
                     />
-                    <br></br>
+                    {/* <br></br> */}
                     <label className="det" htmlFor="branch">
-                      Branch :{" "}
+                      Branch {" "}
                     </label>
                     <FormControl
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                      sx={{ mb: 2, pr: 2, minWidth: 120 }}
                     >
                       <Select
                         labelId="demo-simple-select-standard-label"
@@ -590,29 +613,29 @@ const MainForm = () => {
                     </FormControl>
                     <br className="media"></br>
                     <label className="det" htmlFor="email">
-                      College Email :{" "}
+                      College Email {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1email"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupA1.email}
                       onChange={(e) =>
                         setGroupA1({ ...groupA1, email: e.target.value })
                       }
                     />
-                    <br></br>
+                    {/* <br></br> */}
                     <label className="det" htmlFor="phone">
-                      Phone No :{" "}
+                      Phone Number {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupA1phoneNo"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupA1.phoneNo}
                       onChange={(e) =>
                         setGroupA1({ ...groupA1, phoneNo: e.target.value })
@@ -629,14 +652,14 @@ const MainForm = () => {
                       <h3 className="mem">Member 2 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Name :{" "}
+                        Full Name {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA2name"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA2.name}
                         onChange={(e) =>
                           setGroupA2({ ...groupA2, name: e.target.value })
@@ -644,14 +667,14 @@ const MainForm = () => {
                       />
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll No :{" "}
+                        Roll Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupA2rollNo"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA2.rollNo}
                         onChange={(e) => {
                           setGroupA2({ ...groupA2, rollNo: e.target.value });
@@ -679,15 +702,15 @@ const MainForm = () => {
                           }
                         }}
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="branch">
-                        Branch :{" "}
+                        Branch {" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -709,29 +732,29 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email :{" "}
+                        College Email {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupA2email"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA2.email}
                         onChange={(e) =>
                           setGroupA2({ ...groupA2, email: e.target.value })
                         }
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="phone">
-                        Phone No :{" "}
+                        Phone Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA2phoneNo"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA2.phoneNo}
                         onChange={(e) =>
                           setGroupA2({ ...groupA2, phoneNo: e.target.value })
@@ -749,14 +772,14 @@ const MainForm = () => {
                       <h3 className="mem">Member 3 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Name :{" "}
+                        Full Name {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3name"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA3.name}
                         onChange={(e) =>
                           setGroupA3({ ...groupA3, name: e.target.value })
@@ -764,14 +787,14 @@ const MainForm = () => {
                       />
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll No :{" "}
+                        Roll Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3rollNo"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA3.rollNo}
                         onChange={(e) => {
                           setGroupA3({ ...groupA3, rollNo: e.target.value });
@@ -799,15 +822,15 @@ const MainForm = () => {
                           }
                         }}
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="branch">
-                        Branch :{" "}
+                        Branch {" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -829,29 +852,29 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email :{" "}
+                        College Email {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3email"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA3.email}
                         onChange={(e) =>
                           setGroupA3({ ...groupA3, email: e.target.value })
                         }
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="phone">
-                        Phone No :{" "}
+                        Phone Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupA3phoneNo"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupA3.phoneNo}
                         onChange={(e) =>
                           setGroupA3({ ...groupA3, phoneNo: e.target.value })
@@ -884,14 +907,14 @@ const MainForm = () => {
                     <h3 className="mem">Member 1 : </h3>
                     <br />
                     <label className="det" htmlFor="name">
-                      Name :{" "}
+                      Full Name {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       name="groupB1name"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupB1.name}
                       onChange={(e) =>
                         setGroupB1({ ...groupB1, name: e.target.value })
@@ -899,14 +922,14 @@ const MainForm = () => {
                     />
                     <br className="media"></br>
                     <label className="det" htmlFor="roll">
-                      Roll No :{" "}
+                      Roll Number {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
                       name="groupB1rollNo"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupB1.rollNo}
                       onChange={(e) => {
                         setGroupB1({ ...groupB1, rollNo: e.target.value });
@@ -933,15 +956,15 @@ const MainForm = () => {
                         }
                       }}
                     />
-                    <br></br>
+                    {/* <br></br> */}
                     <label className="det" htmlFor="branch">
-                      Branch :{" "}
+                      Branch {" "}
                     </label>
                     <FormControl
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
-                      sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                      sx={{ mb: 2, pr: 2, minWidth: 120 }}
                     >
                       <Select
                         labelId="demo-simple-select-standard-label"
@@ -962,29 +985,29 @@ const MainForm = () => {
                     </FormControl>
                     <br className="media"></br>
                     <label className="det" htmlFor="email">
-                      College Email :{" "}
+                      College Email {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
                       name="groupB1email"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupB1.email}
                       onChange={(e) =>
                         setGroupB1({ ...groupB1, email: e.target.value })
                       }
                     />
-                    <br></br>
+                    {/* <br></br> */}
                     <label className="det" htmlFor="phone">
-                      Phone No :{" "}
+                      Phone Number {" "}
                     </label>
                     <TextField
                       id="outlined-basic"
                       size="small"
                       variant="outlined"
                       name="groupB1phoneNo"
-                      sx={{ mb: 4, pr: 2 }}
+                      sx={{ mb: 2, pr: 2 }}
                       value={groupB1.phoneNo}
                       onChange={(e) =>
                         setGroupB1({ ...groupB1, phoneNo: e.target.value })
@@ -1001,14 +1024,14 @@ const MainForm = () => {
                       <h3 className="mem">Member 2 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Name :{" "}
+                        FullName {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupB2name"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB2.name}
                         onChange={(e) =>
                           setGroupB2({ ...groupB2, name: e.target.value })
@@ -1016,14 +1039,14 @@ const MainForm = () => {
                       />
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll No :{" "}
+                        Roll Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB2rollNo"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB2.rollNo}
                         onChange={(e) => {
                           setGroupB2({ ...groupB2, rollNo: e.target.value });
@@ -1050,15 +1073,15 @@ const MainForm = () => {
                           }
                         }}
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="branch">
-                        Branch :{" "}
+                        Branch {" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -1079,29 +1102,29 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email :{" "}
+                        College Email {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupB2email"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB2.email}
                         onChange={(e) =>
                           setGroupB2({ ...groupB2, email: e.target.value })
                         }
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="phone">
-                        Phone No :{" "}
+                        Phone Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB2phoneNo"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB2.phoneNo}
                         onChange={(e) =>
                           setGroupB2({ ...groupB2, phoneNo: e.target.value })
@@ -1119,14 +1142,14 @@ const MainForm = () => {
                       <h3 className="mem">Member 3 : </h3>
                       <br />
                       <label className="det" htmlFor="name">
-                        Name :{" "}
+                        Full Name {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB3name"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB3.name}
                         onChange={(e) =>
                           setGroupB3({ ...groupB3, name: e.target.value })
@@ -1134,14 +1157,14 @@ const MainForm = () => {
                       />
                       <br className="media"></br>
                       <label className="det" htmlFor="roll">
-                        Roll No :{" "}
+                        Roll Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         name="groupB3rollNo"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB3.rollNo}
                         onChange={(e) => {
                           setGroupB3({ ...groupB3, rollNo: e.target.value });
@@ -1168,15 +1191,15 @@ const MainForm = () => {
                           }
                         }}
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="branch">
-                        Branch :{" "}
+                        Branch {" "}
                       </label>
                       <FormControl
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                        sx={{ mb: 2, pr: 2, minWidth: 120 }}
                       >
                         <Select
                           labelId="demo-simple-select-standard-label"
@@ -1197,29 +1220,29 @@ const MainForm = () => {
                       </FormControl>
                       <br className="media"></br>
                       <label className="det" htmlFor="email">
-                        College Email :{" "}
+                        College Email {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         name="groupB3email"
                         variant="outlined"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB3.email}
                         onChange={(e) =>
                           setGroupB3({ ...groupB3, email: e.target.value })
                         }
                       />
-                      <br></br>
+                      {/* <br></br> */}
                       <label className="det" htmlFor="phone">
-                        Phone No :{" "}
+                        Phone Number {" "}
                       </label>
                       <TextField
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
                         name="groupB3phoneNo"
-                        sx={{ mb: 4, pr: 2 }}
+                        sx={{ mb: 2, pr: 2 }}
                         value={groupB3.phoneNo}
                         onChange={(e) =>
                           setGroupB3({ ...groupB3, phoneNo: e.target.value })

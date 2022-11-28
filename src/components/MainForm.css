@@ -1,8 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
 #scroll{
-position: absolute;
-    left:30%;
+/* position: absolute;
+    left:45%;
     top:20%;
-    right: 20%;
+    right: 20%; */
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid rebeccapurple; */
+    /* width: fit-content;
+    margin: auto; */
+}
+.progressBar {
+    /* padding: 5rem; */
+    margin-top: 1rem;
+    color: #0A6498;
+}
+.item-time {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid red; */
+    padding: 2rem;
+}
+#para-time {
+    /* border: 1px solid red; */
+    position: relative;
+    left: 1rem;
+}
+.progressBar h2 {
+    position: relative;
+    top: 1.4rem;
+}
+#pro {
+    /* border: 1px solid red; */
+    /* width: fit-content; */
+    margin-top: 4rem;
+    height: 30rem;
+}
+.para {
+    position: relative;
+    right: 1.8rem;
+    /* border: 1px solid red; */
+}
+#time1 {
+    position: relative;
+    left: 0.5rem;
+}
+#time2 {
+    position: relative;
+    right: 0.8rem;
+}
+#active {
+    background-color: #1788cc;
+    position: relative;
+    left: 0.4rem;
+}
+.time {
+    border: 1px solid #0A6498;
+    width: fit-content;
+    margin: auto;
+    width: 3rem;
+    height: 3rem;
+    padding: 1rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: black;
+    font-weight: 700;
+}
+.timeP {
+    position: relative;
+    top: 1rem;
 }
 #leftside
 {
@@ -13,6 +86,18 @@ position: absolute;
     width: 100vw;
     overflow-wrap: normal;
 
+}
+.box {
+    /* border: 1px solid red; */
+}
+#tsize {
+    /* border: 1px solid red; */
+    display: flex;
+    
+}
+.select-team {
+    /* border: 1px solid red; */
+    margin-right: 1rem;
 }
 #xyz
 { height: 100vh;
@@ -30,7 +115,6 @@ position: absolute;
     font-size:170%;
     font-family: Roboto, Helvetica, sans-serif;
     
-    
 }
 .head1
 {
@@ -38,8 +122,7 @@ position: absolute;
     font-weight: bold;
     font-size:200%;
     font-family: Roboto, Helvetica, sans-serif;
-    
-    
+
 }
 h3{
     font-family: Roboto, Helvetica, sans-serif;
@@ -131,5 +214,10 @@ padding-bottom: 7%;
     }
     #tech {
         height: 23%;
+    }
+}
+@media(max-width: 900px) {
+    .progressBar {
+        display: none;
     }
 }
