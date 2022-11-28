@@ -651,6 +651,7 @@ const MainForm = () => {
                       display: "flex",
                       flexDirection: "column",
                     }}
+                    className="memberdiv"
                   >
                     <h3 className="mem">Member 1 : </h3>
                     <br />
@@ -810,6 +811,7 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 2 : </h3>
                       <br />
@@ -970,6 +972,7 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 3 : </h3>
                       <br />
@@ -1145,6 +1148,7 @@ const MainForm = () => {
                       display: "flex",
                       flexDirection: "column",
                     }}
+                    className="memberdiv"
                   >
                     <h3 className="mem">Member 1 : </h3>
                     <br />
@@ -1302,6 +1306,7 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 2 : </h3>
                       <br />
@@ -1460,6 +1465,7 @@ const MainForm = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                      className="memberdiv"
                     >
                       <h3 className="mem">Member 3 : </h3>
                       <br />
