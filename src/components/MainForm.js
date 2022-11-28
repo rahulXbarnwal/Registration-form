@@ -203,7 +203,7 @@ const MainForm = () => {
         groupB3.email === "" ||
         groupB3.phoneNo === ""
       ) {
-        toast.warn("Please Enter All Details !", {
+        toast.error("Please Enter All Details !", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -305,7 +305,7 @@ const MainForm = () => {
         groupB2.email === "" ||
         groupB2.phoneNo === ""
       ) {
-        toast.warn("Please Enter All Details !", {
+        toast.error("Please Enter All Details !", {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -335,7 +335,7 @@ const MainForm = () => {
         isInvalid.groupB2email ||
         isInvalid.groupB2phone
       ) {
-        toast.warn("Please Enter Valid details !", {
+        toast.error("Please Enter Valid details !", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -407,7 +407,7 @@ const MainForm = () => {
         groupB1.email === "" ||
         groupB1.phoneNo === ""
       ) {
-        toast.warn("Please Enter All Details !", {
+        toast.error("Please Enter All Details !", {
           position: "top-center",
           autoClose: 2000,
           hideProgressBar: false,
@@ -437,7 +437,7 @@ const MainForm = () => {
         isInvalid.groupB1email ||
         isInvalid.groupB1phone
       ) {
-        toast.warn("Please Enter Valid details !", {
+        toast.error("Please Enter Valid details !", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
