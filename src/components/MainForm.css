@@ -3,24 +3,25 @@
     letter-spacing: 2px;
 }
 #scroll {
-    background-color: #b8b8b8;
+    background-color: rgba(245, 245, 245, 0.842);
   display: flex;
   justify-content: center;
   width: 100%;
   height: 86%;
+  
 }
 #leftside {
   height: 15%;
-  background-color: #132647;
+  background-color: #5B3532;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
   overflow-wrap: normal;
 }
 #xyz {
-  background-color: #b8b8b8;
+  background-color: #5B3532;
   height: 100%;
-  color: #132647;
+  color: #5B3532;
 }
 .rightside {
   height: 100%;
@@ -37,7 +38,7 @@
     text-align: center;
   font-weight: bold;
   font-size: 200%;
-  
+  /* margin-bottom: 10px; */
 }
 h3 {
   
@@ -48,7 +49,7 @@ h3 {
 }
 
 .labels {
-  color: #132647;
+  color: #5B3532;
   font-size: 100%;
   text-align: center;
   
@@ -64,13 +65,13 @@ h3 {
   margin-bottom: 5%;
 }
 .det {
-  color: #132647;
+  color: #5B3532;
   
   position: relative;
   top: 50%;
 }
 .mem {
-  color: #132647;
+  color: #5B3532;
   margin-top: 0.5%;
   margin-bottom: 2%;
   font-weight: bold;
@@ -93,12 +94,21 @@ h3 {
 }
 @media only screen and (max-width: 1000px) {
     #xyz{
-        background-color: #b8b8b8;
+        background-color: #5B3532;
     }
 
 }
 
 @media only screen and (max-width: 800px) {
+  .tdyn {
+    width: 93.5%;
+  }
+  .head1 {
+    margin-bottom: 6%;
+  }
+  .headerinner {
+    height: 13.5vh;
+  }
   #leftside {
     height: 20%;
     width: 100vw;
@@ -107,7 +117,8 @@ h3 {
     left: 5%;
     top: 23%;
     right: 5%;
-    background-color: #b8b8b8;
+    padding-top: 10%;
+    background-color: rgba(245, 245, 245, 0.842);
   }
 
   #logo {
@@ -130,13 +141,20 @@ h3 {
   .brllogo {
     margin-top: -6%;
     margin-left: 3%;
+    height: 45px;
+    width: 150px;
   }
   .technivallogo {
     position: relative;
+    height: 140px;
     right: 5px;
+    top: -20%;
   }
 }
 @media only screen and (min-width: 800px) {
+  .tdyn {
+    width: 98%;
+  }
   .media {
     display: none;
   }
@@ -155,17 +173,17 @@ h3 {
     padding-left: 2.5%;
   }
   .brllogo {
-    height: 56px;
-    width: 194px;
+    height: 60px;
+    width: 200px;
     margin-left: 12%;
-    margin-top: -4%;
+    margin-top: -5%;
   }
   .technivallogo {
-    height: 150px;
+    height: 170px;
     width: 200px;
     position: relative;
     right: 77px;
-    top: -7px;
+    top: -25px;
   }
 }
 

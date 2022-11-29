@@ -64,6 +64,7 @@ const MainForm = () => {
     branch: "",
     email: "",
     phoneNo: "",
+    hosteller: "",
   });
   const [groupA2, setGroupA2] = useState({
     name: "",
@@ -71,6 +72,7 @@ const MainForm = () => {
     branch: "",
     email: "",
     phoneNo: "",
+    hosteller: "",
   });
   const [groupA3, setGroupA3] = useState({
     name: "",
@@ -78,6 +80,7 @@ const MainForm = () => {
     branch: "",
     email: "",
     phoneNo: "",
+    hosteller: "",
   });
   const [groupB1, setGroupB1] = useState({
     name: "",
@@ -85,6 +88,7 @@ const MainForm = () => {
     branch: "",
     email: "",
     phoneNo: "",
+    hosteller: "",
   });
   const [groupB2, setGroupB2] = useState({
     name: "",
@@ -92,6 +96,7 @@ const MainForm = () => {
     branch: "",
     email: "",
     phoneNo: "",
+    hosteller: "",
   });
   const [groupB3, setGroupB3] = useState({
     name: "",
@@ -99,6 +104,7 @@ const MainForm = () => {
     branch: "",
     email: "",
     phoneNo: "",
+    hosteller: "",
   });
 
   const isValidName = (name) => {
@@ -163,6 +169,7 @@ const MainForm = () => {
         branch: "",
         email: "",
         phoneNo: "",
+        hosteller: "",
       };
       setGroupA1(obj);
       setGroupA2(obj);
@@ -194,21 +201,25 @@ const MainForm = () => {
         groupA1.branch === "" ||
         groupA1.email === "" ||
         groupA1.phoneNo === "" ||
+        groupA1.hosteller === "" ||
         groupB1.name === "" ||
         groupB1.rollNo === "" ||
         groupB1.branch === "" ||
         groupB1.email === "" ||
         groupB1.phoneNo === "" ||
+        groupB1.hosteller === "" ||
         groupB2.name === "" ||
         groupB2.rollNo === "" ||
         groupB2.branch === "" ||
         groupB2.email === "" ||
         groupB2.phoneNo === "" ||
+        groupB2.hosteller === "" ||
         groupB3.name === "" ||
         groupB3.rollNo === "" ||
         groupB3.branch === "" ||
         groupB3.email === "" ||
-        groupB3.phoneNo === ""
+        groupB3.phoneNo === "" ||
+        groupB3.hosteller === ""
       ) {
         toast.error("Please Enter All Details !", {
           position: "top-center",
@@ -262,6 +273,7 @@ const MainForm = () => {
               branch: groupA1.branch,
               email: groupA1.email,
               phoneNo: groupA1.phoneNo,
+              hosteler: groupA1.hosteller,
             },
           ],
           groupB: [
@@ -271,6 +283,7 @@ const MainForm = () => {
               branch: groupB1.branch,
               email: groupB1.email,
               phoneNo: groupB1.phoneNo,
+              hosteler: groupB1.hosteller,
             },
             {
               name: groupB2.name,
@@ -278,6 +291,7 @@ const MainForm = () => {
               branch: groupB2.branch,
               email: groupB2.email,
               phoneNo: groupB2.phoneNo,
+              hosteler: groupB2.hosteller,
             },
             {
               name: groupB3.name,
@@ -285,6 +299,7 @@ const MainForm = () => {
               branch: groupB3.branch,
               email: groupB3.email,
               phoneNo: groupB3.phoneNo,
+              hosteler: groupB3.hosteller,
             },
           ],
         },
@@ -296,21 +311,25 @@ const MainForm = () => {
         groupA1.branch === "" ||
         groupA1.email === "" ||
         groupA1.phoneNo === "" ||
+        groupA1.hosteller === "" ||
         groupA2.name === "" ||
         groupA2.rollNo === "" ||
         groupA2.branch === "" ||
         groupA2.email === "" ||
         groupA2.phoneNo === "" ||
+        groupA2.hosteller === "" ||
         groupB1.name === "" ||
         groupB1.rollNo === "" ||
         groupB1.branch === "" ||
         groupB1.email === "" ||
         groupB1.phoneNo === "" ||
+        groupB1.hosteller === "" ||
         groupB2.name === "" ||
         groupB2.rollNo === "" ||
         groupB2.branch === "" ||
         groupB2.email === "" ||
-        groupB2.phoneNo === ""
+        groupB2.phoneNo === "" ||
+        groupB2.hosteller === ""
       ) {
         toast.error("Please Enter All Details !", {
           position: "top-center",
@@ -364,6 +383,7 @@ const MainForm = () => {
               branch: groupA1.branch,
               email: groupA1.email,
               phoneNo: groupA1.phoneNo,
+              hosteler: groupA1.hosteller,
             },
             {
               name: groupA2.name,
@@ -371,6 +391,7 @@ const MainForm = () => {
               branch: groupA2.branch,
               email: groupA2.email,
               phoneNo: groupA2.phoneNo,
+              hosteler: groupA2.hosteller,
             },
           ],
           groupB: [
@@ -380,6 +401,7 @@ const MainForm = () => {
               branch: groupB1.branch,
               email: groupB1.email,
               phoneNo: groupB1.phoneNo,
+              hosteler: groupB1.hosteller,
             },
             {
               name: groupB2.name,
@@ -387,6 +409,7 @@ const MainForm = () => {
               branch: groupB2.branch,
               email: groupB2.email,
               phoneNo: groupB2.phoneNo,
+              hosteler: groupB2.hosteller,
             },
           ],
         },
@@ -398,21 +421,25 @@ const MainForm = () => {
         groupA1.branch === "" ||
         groupA1.email === "" ||
         groupA1.phoneNo === "" ||
+        groupA1.hosteller === "" ||
         groupA2.name === "" ||
         groupA2.rollNo === "" ||
         groupA2.branch === "" ||
         groupA2.email === "" ||
         groupA2.phoneNo === "" ||
+        groupA2.hosteller === "" ||
         groupA3.name === "" ||
         groupA3.rollNo === "" ||
         groupA3.branch === "" ||
         groupA3.email === "" ||
         groupA3.phoneNo === "" ||
+        groupA3.hosteller === "" ||
         groupB1.name === "" ||
         groupB1.rollNo === "" ||
         groupB1.branch === "" ||
         groupB1.email === "" ||
-        groupB1.phoneNo === ""
+        groupB1.phoneNo === "" ||
+        groupB1.hosteller === ""
       ) {
         toast.error("Please Enter All Details !", {
           position: "top-center",
@@ -466,6 +493,7 @@ const MainForm = () => {
               branch: groupA1.branch,
               email: groupA1.email,
               phoneNo: groupA1.phoneNo,
+              hosteler: groupA1.hosteller,
             },
             {
               name: groupA2.name,
@@ -473,6 +501,7 @@ const MainForm = () => {
               branch: groupA2.branch,
               email: groupA2.email,
               phoneNo: groupA2.phoneNo,
+              hosteler: groupA2.hosteller,
             },
             {
               name: groupA3.name,
@@ -480,6 +509,7 @@ const MainForm = () => {
               branch: groupA3.branch,
               email: groupA3.email,
               phoneNo: groupA3.phoneNo,
+              hosteler: groupA3.hosteller,
             },
           ],
           groupB: [
@@ -489,6 +519,7 @@ const MainForm = () => {
               branch: groupB1.branch,
               email: groupB1.email,
               phoneNo: groupB1.phoneNo,
+              hosteler: groupB1.hosteller,
             },
           ],
         },
@@ -579,9 +610,10 @@ const MainForm = () => {
                         id="outlined-basic"
                         size="small"
                         variant="outlined"
+                        className="tdyn"
                         name="teamName"
                         value={teamName}
-                        style={{ width: "100%", boxSizing: "border-box" }}
+                        style={{ boxSizing: "border-box" }}
                         onChange={(e) => {
                           setTeamName(e.target.value);
                         }}
@@ -665,7 +697,7 @@ const MainForm = () => {
                   id="memberdetail"
                   variant="contained"
                   onClick={handleClick}
-                  style={{ backgroundColor: "#132647", color: "white" }}
+                  style={{ backgroundColor: "#5B3532", color: "white" }}
                   disabled={
                     teamName === "" || groupASize === "" || groupBSize === ""
                   }
@@ -847,6 +879,34 @@ const MainForm = () => {
                         Invalid Phone Number!
                       </FormHelperText>
                     )}
+                    <br></br>
+                    <label className="det" htmlFor="branch">
+                      Are you Hosteller ?{" "}
+                    </label>
+                    <FormControl
+                      id="outlined-basic"
+                      size="small"
+                      variant="outlined"
+                      sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                    >
+                      <Select
+                        labelId="demo-simple-select-standard-label"
+                        id="demo-simple-select-standard"
+                        name="groupA1hosteler"
+                        value={groupA1.hosteller}
+                        onChange={(e) => {
+                          setGroupA1({ ...groupA1, hosteller: e.target.value });
+                        }}
+                      >
+                        <MenuItem value={"YES (Boys Hostel)"}>
+                          YES (Boys Hostel)
+                        </MenuItem>
+                        <MenuItem value={"YES (Girls Hostel)"}>
+                          YES (Girls Hostel)
+                        </MenuItem>
+                        <MenuItem value={"NO"}>NO</MenuItem>
+                      </Select>
+                    </FormControl>
                   </div>
                   {groupASize > 1 && (
                     <div
@@ -1007,6 +1067,37 @@ const MainForm = () => {
                           Invalid Phone Number!
                         </FormHelperText>
                       )}
+                      <br></br>
+                      <label className="det" htmlFor="branch">
+                        Are you Hosteller ?{" "}
+                      </label>
+                      <FormControl
+                        id="outlined-basic"
+                        size="small"
+                        variant="outlined"
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                      >
+                        <Select
+                          labelId="demo-simple-select-standard-label"
+                          id="demo-simple-select-standard"
+                          name="groupA2hosteler"
+                          value={groupA2.hosteller}
+                          onChange={(e) => {
+                            setGroupA2({
+                              ...groupA2,
+                              hosteller: e.target.value,
+                            });
+                          }}
+                        >
+                          <MenuItem value={"YES (Boys Hostel)"}>
+                            YES (Boys Hostel)
+                          </MenuItem>
+                          <MenuItem value={"YES (Girls Hostel)"}>
+                            YES (Girls Hostel)
+                          </MenuItem>
+                          <MenuItem value={"NO"}>NO</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   )}
                   {groupASize > 2 && (
@@ -1168,6 +1259,37 @@ const MainForm = () => {
                           Invalid Phone Number!
                         </FormHelperText>
                       )}
+                      <br></br>
+                      <label className="det" htmlFor="branch">
+                        Are you Hosteller ?{" "}
+                      </label>
+                      <FormControl
+                        id="outlined-basic"
+                        size="small"
+                        variant="outlined"
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                      >
+                        <Select
+                          labelId="demo-simple-select-standard-label"
+                          id="demo-simple-select-standard"
+                          name="groupA3hosteler"
+                          value={groupA3.hosteller}
+                          onChange={(e) => {
+                            setGroupA3({
+                              ...groupA3,
+                              hosteller: e.target.value,
+                            });
+                          }}
+                        >
+                          <MenuItem value={"YES (Boys Hostel)"}>
+                            YES (Boys Hostel)
+                          </MenuItem>
+                          <MenuItem value={"YES (Girls Hostel)"}>
+                            YES (Girls Hostel)
+                          </MenuItem>
+                          <MenuItem value={"NO"}>NO</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   )}
                 </div>
@@ -1342,6 +1464,34 @@ const MainForm = () => {
                         Invalid Phone Number!
                       </FormHelperText>
                     )}
+                    <br></br>
+                    <label className="det" htmlFor="branch">
+                      Are you Hosteller ?{" "}
+                    </label>
+                    <FormControl
+                      id="outlined-basic"
+                      size="small"
+                      variant="outlined"
+                      sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                    >
+                      <Select
+                        labelId="demo-simple-select-standard-label"
+                        id="demo-simple-select-standard"
+                        name="groupB1hosteler"
+                        value={groupB1.hosteller}
+                        onChange={(e) => {
+                          setGroupB1({ ...groupB1, hosteller: e.target.value });
+                        }}
+                      >
+                        <MenuItem value={"YES (Boys Hostel)"}>
+                          YES (Boys Hostel)
+                        </MenuItem>
+                        <MenuItem value={"YES (Girls Hostel)"}>
+                          YES (Girls Hostel)
+                        </MenuItem>
+                        <MenuItem value={"NO"}>NO</MenuItem>
+                      </Select>
+                    </FormControl>
                   </div>
                   {groupBSize > 1 && (
                     <div
@@ -1500,6 +1650,37 @@ const MainForm = () => {
                           Invalid Phone Number!
                         </FormHelperText>
                       )}
+                      <br></br>
+                      <label className="det" htmlFor="branch">
+                        Are you Hosteller ?{" "}
+                      </label>
+                      <FormControl
+                        id="outlined-basic"
+                        size="small"
+                        variant="outlined"
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                      >
+                        <Select
+                          labelId="demo-simple-select-standard-label"
+                          id="demo-simple-select-standard"
+                          name="groupB2hosteler"
+                          value={groupB2.hosteller}
+                          onChange={(e) => {
+                            setGroupB2({
+                              ...groupB2,
+                              hosteller: e.target.value,
+                            });
+                          }}
+                        >
+                          <MenuItem value={"YES (Boys Hostel)"}>
+                            YES (Boys Hostel)
+                          </MenuItem>
+                          <MenuItem value={"YES (Girls Hostel)"}>
+                            YES (Girls Hostel)
+                          </MenuItem>
+                          <MenuItem value={"NO"}>NO</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   )}
                   {groupBSize > 2 && (
@@ -1659,6 +1840,37 @@ const MainForm = () => {
                           Invalid Phone Number!
                         </FormHelperText>
                       )}
+                      <br></br>
+                      <label className="det" htmlFor="branch">
+                        Are you Hosteller ?{" "}
+                      </label>
+                      <FormControl
+                        id="outlined-basic"
+                        size="small"
+                        variant="outlined"
+                        sx={{ mb: 4, pr: 2, minWidth: 120 }}
+                      >
+                        <Select
+                          labelId="demo-simple-select-standard-label"
+                          id="demo-simple-select-standard"
+                          name="groupB3hosteler"
+                          value={groupB3.hosteller}
+                          onChange={(e) => {
+                            setGroupB3({
+                              ...groupB3,
+                              hosteller: e.target.value,
+                            });
+                          }}
+                        >
+                          <MenuItem value={"YES (Boys Hostel)"}>
+                            YES (Boys Hostel)
+                          </MenuItem>
+                          <MenuItem value={"YES (Girls Hostel)"}>
+                            YES (Girls Hostel)
+                          </MenuItem>
+                          <MenuItem value={"NO"}>NO</MenuItem>
+                        </Select>
+                      </FormControl>
                     </div>
                   )}
                 </div>
@@ -1696,7 +1908,7 @@ const MainForm = () => {
                         type="submit"
                         style={{
                           width: "37%",
-                          backgroundColor: "#132647",
+                          backgroundColor: "#5B3532",
                           color: "white",
                         }}
                         disabled={!verified}
