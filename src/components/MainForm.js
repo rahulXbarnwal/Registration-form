@@ -135,7 +135,7 @@ const MainForm = () => {
     console.log(data);
     setLoading(true);
     const res = await axios
-      .post("https://temp-app-studentapi.herokuapp.com/api/v1/student", data)
+      .post("https://temp-app-studentapi.herokuapp.com/api/v1/register", data)
       .catch((err) => {
         setLoading(false);
         setVerified(false);
