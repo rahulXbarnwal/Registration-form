@@ -31,7 +31,7 @@
     text-align: center;
   margin-top: 1em;
   font-weight: bold;
-  font-size: 170%;
+  font-size: 150%;
 }
 .head1 {
     text-align: center;
@@ -71,7 +71,7 @@ h3 {
 }
 .mem {
   color: #132647;
-  margin-top: 2%;
+  margin-top: 0.5%;
   margin-bottom: 2%;
   font-weight: bold;
   text-align: center;
@@ -95,6 +95,7 @@ h3 {
     #xyz{
         background-color: #b8b8b8;
     }
+
 }
 
 @media only screen and (max-width: 800px) {
@@ -126,6 +127,14 @@ h3 {
   .memberdiv {
     padding-left: 4.7%;
   }
+  .brllogo {
+    margin-top: -6%;
+    margin-left: 3%;
+  }
+  .technivallogo {
+    position: relative;
+    right: 5px;
+  }
 }
 @media only screen and (min-width: 800px) {
   .media {
@@ -144,6 +153,19 @@ h3 {
   }
   .memberdiv {
     padding-left: 2.5%;
+  }
+  .brllogo {
+    height: 56px;
+    width: 194px;
+    margin-left: 12%;
+    margin-top: -4%;
+  }
+  .technivallogo {
+    height: 150px;
+    width: 200px;
+    position: relative;
+    right: 77px;
+    top: -7px;
   }
 }
 
@@ -164,11 +186,11 @@ h3 {
   
   box-sizing: border-box;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 .headerinnerchild {
   width: 140px;
-  height: 100px;
+  height: 110px;
   display: flex;
   align-items: center;
 }

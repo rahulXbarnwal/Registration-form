@@ -525,11 +525,23 @@ const MainForm = () => {
         <div className="headerinner">
           <div className="headerinnerchild">
             <div className="headerinnerchild2">
-              <img src={logo} alt="brllogo" height="100%" width="100%" />
+              <img
+                src={logo}
+                alt="brllogo"
+                height="100%"
+                width="100%"
+                className="brllogo"
+              />
             </div>
           </div>
           <div className="headerinnerchild1">
-            <img src={technival} alt="brllogo" height="100%" width="100%" />
+            <img
+              src={technival}
+              alt="brllogo"
+              height="100%"
+              width="100%"
+              className="technivallogo"
+            />
           </div>
         </div>
       </div>
