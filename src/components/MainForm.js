@@ -23,6 +23,7 @@ const MainForm = () => {
   const navigate = useNavigate();
   const recaptchaRef = useRef(null);
   const [teamName, setTeamName] = useState("");
+  const [password, setPassword] = useState("");
   const [groupASize, setGroupASize] = useState("");
   const [groupBSize, setGroupBSize] = useState("");
   const [addDetails, setAddDetails] = useState(false);
@@ -155,6 +156,7 @@ const MainForm = () => {
       });
     if (res) {
       setTeamName("");
+      setPassword("");
       setGroupASize("");
       setGroupBSize("");
       setAddDetails(false);
@@ -264,6 +266,7 @@ const MainForm = () => {
       data = {
         team: {
           teamname: teamName,
+          password: password,
           groupA: [
             {
               name: groupA1.name,
@@ -374,6 +377,7 @@ const MainForm = () => {
       data = {
         team: {
           teamname: teamName,
+          password: password,
           groupA: [
             {
               name: groupA1.name,
@@ -484,6 +488,7 @@ const MainForm = () => {
       data = {
         team: {
           teamname: teamName,
+          password: password,
           groupA: [
             {
               name: groupA1.name,
@@ -619,6 +624,28 @@ const MainForm = () => {
                         />
                       </div>
                     </div>
+                    <br />
+                    {/* <br /> */}
+                    <div style={{ width: "100%" }}>
+                      <div style={{ width: "100" }}>
+                        <label className="labels" htmlFor="password">
+                          Create Password:
+                        </label>
+                        <br></br>
+                        <TextField
+                          id="outlined-basic"
+                          size="small"
+                          variant="outlined"
+                          className="tdyn"
+                          name="password"
+                          value={password}
+                          style={{ boxSizing: "border-box" }}
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div id="tsize">
@@ -651,7 +678,7 @@ const MainForm = () => {
                       </Select>
                     </FormControl>
                   </div>
-                  <br />
+                  {/* <br /> */}
                   <div>
                     <label className="labels" htmlFor="GroupBSize">
                       Group B Size :{" "}
@@ -698,7 +725,10 @@ const MainForm = () => {
                     onClick={handleClick}
                     style={{ backgroundColor: "#5B3532", color: "white" }}
                     disabled={
-                      teamName === "" || groupASize === "" || groupBSize === ""
+                      teamName === "" ||
+                      groupASize === "" ||
+                      groupBSize === "" ||
+                      password === ""
                     }
                   >
                     Add Member Details
@@ -709,6 +739,7 @@ const MainForm = () => {
                 groupASize >= 1 &&
                 groupBSize >= 1 &&
                 teamName !== "" &&
+                password !=="" &&
                 groupASize !== "" &&
                 groupBSize !== "" && (
                   <div
@@ -1310,6 +1341,7 @@ const MainForm = () => {
                 groupASize >= 1 &&
                 groupBSize >= 1 &&
                 teamName !== "" &&
+                password !== "" &&
                 groupASize !== "" &&
                 groupBSize !== "" && (
                   <div
@@ -1904,6 +1936,7 @@ const MainForm = () => {
               >
                 {showSubmitBtn &&
                   teamName !== "" &&
+                  password !== "" &&
                   groupASize !== "" &&
                   groupBSize !== "" && (
                     <div
