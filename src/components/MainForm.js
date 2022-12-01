@@ -113,7 +113,7 @@ const MainForm = () => {
   };
 
   const isValidRollNo = (roll) => {
-    return /^[0-9]+$/.test(roll);
+    return true;
   };
 
   const isValidEmail = (email) => {
@@ -263,6 +263,56 @@ const MainForm = () => {
         });
         return;
       }
+      if (
+        groupA1.rollNo === groupB1.rollNo ||
+        groupA1.rollNo === groupB2.rollNo ||
+        groupA1.rollNo === groupB3.rollNo ||
+        groupA1.email === groupB1.email ||
+        groupA1.email === groupB2.email ||
+        groupA1.email === groupB3.email ||
+        groupA1.phoneNo === groupB1.phoneNo ||
+        groupA1.phoneNo === groupB2.phoneNo ||
+        groupA1.phoneNo === groupB3.phoneNo ||
+        groupB1.rollNo === groupA1.rollNo ||
+        groupB1.rollNo === groupB2.rollNo ||
+        groupB1.rollNo === groupB3.rollNo ||
+        groupB1.email === groupA1.email ||
+        groupB1.email === groupB2.email ||
+        groupB1.email === groupB3.email ||
+        groupB1.phoneNo === groupA1.phoneNo ||
+        groupB1.phoneNo === groupB2.phoneNo ||
+        groupB1.phoneNo === groupB3.phoneNo ||
+        groupB2.rollNo === groupB1.rollNo ||
+        groupB2.rollNo === groupA1.rollNo ||
+        groupB2.rollNo === groupB3.rollNo ||
+        groupB2.email === groupB1.email ||
+        groupB2.email === groupA1.email ||
+        groupB2.email === groupB3.email ||
+        groupB2.phoneNo === groupB1.phoneNo ||
+        groupB2.phoneNo === groupA1.phoneNo ||
+        groupB2.phoneNo === groupB3.phoneNo ||
+        groupB3.rollNo === groupB1.rollNo ||
+        groupB3.rollNo === groupB2.rollNo ||
+        groupB3.rollNo === groupA1.rollNo ||
+        groupB3.email === groupB1.email ||
+        groupB3.email === groupB2.email ||
+        groupB3.email === groupA1.email ||
+        groupB3.phoneNo === groupB1.phoneNo ||
+        groupB3.phoneNo === groupB2.phoneNo ||
+        groupB3.phoneNo === groupA1.phoneNo
+      ) {
+        toast.error("Duplicate Entries are not allowed !", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
       data = {
         team: {
           teamname: teamName,
@@ -374,6 +424,56 @@ const MainForm = () => {
         });
         return;
       }
+      if (
+        groupA1.rollNo === groupB1.rollNo ||
+        groupA1.rollNo === groupB2.rollNo ||
+        groupA1.rollNo === groupA2.rollNo ||
+        groupA1.email === groupB1.email ||
+        groupA1.email === groupB2.email ||
+        groupA1.email === groupA2.email ||
+        groupA1.phoneNo === groupB1.phoneNo ||
+        groupA1.phoneNo === groupB2.phoneNo ||
+        groupA1.phoneNo === groupA2.phoneNo ||
+        groupB1.rollNo === groupA1.rollNo ||
+        groupB1.rollNo === groupB2.rollNo ||
+        groupB1.rollNo === groupA2.rollNo ||
+        groupB1.email === groupA1.email ||
+        groupB1.email === groupB2.email ||
+        groupB1.email === groupA2.email ||
+        groupB1.phoneNo === groupA1.phoneNo ||
+        groupB1.phoneNo === groupB2.phoneNo ||
+        groupB1.phoneNo === groupA2.phoneNo ||
+        groupB2.rollNo === groupB1.rollNo ||
+        groupB2.rollNo === groupA1.rollNo ||
+        groupB2.rollNo === groupA2.rollNo ||
+        groupB2.email === groupB1.email ||
+        groupB2.email === groupA1.email ||
+        groupB2.email === groupA2.email ||
+        groupB2.phoneNo === groupB1.phoneNo ||
+        groupB2.phoneNo === groupA1.phoneNo ||
+        groupB2.phoneNo === groupA2.phoneNo ||
+        groupA2.rollNo === groupB1.rollNo ||
+        groupA2.rollNo === groupB2.rollNo ||
+        groupA2.rollNo === groupA1.rollNo ||
+        groupA2.email === groupB1.email ||
+        groupA2.email === groupB2.email ||
+        groupA2.email === groupA1.email ||
+        groupA2.phoneNo === groupB1.phoneNo ||
+        groupA2.phoneNo === groupB2.phoneNo ||
+        groupA2.phoneNo === groupA1.phoneNo
+      ) {
+        toast.error("Duplicate Entries are not allowed !", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
       data = {
         team: {
           teamname: teamName,
@@ -474,6 +574,56 @@ const MainForm = () => {
         isInvalid.groupB1phone
       ) {
         toast.error("Please Enter Valid details !", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+        return;
+      }
+      if (
+        groupA1.rollNo === groupB1.rollNo ||
+        groupA1.rollNo === groupA3.rollNo ||
+        groupA1.rollNo === groupA2.rollNo ||
+        groupA1.email === groupB1.email ||
+        groupA1.email === groupA3.email ||
+        groupA1.email === groupA2.email ||
+        groupA1.phoneNo === groupB1.phoneNo ||
+        groupA1.phoneNo === groupA3.phoneNo ||
+        groupA1.phoneNo === groupA2.phoneNo ||
+        groupB1.rollNo === groupA1.rollNo ||
+        groupB1.rollNo === groupA3.rollNo ||
+        groupB1.rollNo === groupA2.rollNo ||
+        groupB1.email === groupA1.email ||
+        groupB1.email === groupA3.email ||
+        groupB1.email === groupA2.email ||
+        groupB1.phoneNo === groupA1.phoneNo ||
+        groupB1.phoneNo === groupA3.phoneNo ||
+        groupB1.phoneNo === groupA2.phoneNo ||
+        groupA3.rollNo === groupB1.rollNo ||
+        groupA3.rollNo === groupA1.rollNo ||
+        groupA3.rollNo === groupA2.rollNo ||
+        groupA3.email === groupB1.email ||
+        groupA3.email === groupA1.email ||
+        groupA3.email === groupA2.email ||
+        groupA3.phoneNo === groupB1.phoneNo ||
+        groupA3.phoneNo === groupA1.phoneNo ||
+        groupA3.phoneNo === groupA2.phoneNo ||
+        groupA2.rollNo === groupB1.rollNo ||
+        groupA2.rollNo === groupA3.rollNo ||
+        groupA2.rollNo === groupA1.rollNo ||
+        groupA2.email === groupB1.email ||
+        groupA2.email === groupA3.email ||
+        groupA2.email === groupA1.email ||
+        groupA2.phoneNo === groupB1.phoneNo ||
+        groupA2.phoneNo === groupA3.phoneNo ||
+        groupA2.phoneNo === groupA1.phoneNo
+      ) {
+        toast.error("Duplicate Entries are not allowed !", {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: false,
@@ -739,7 +889,7 @@ const MainForm = () => {
                 groupASize >= 1 &&
                 groupBSize >= 1 &&
                 teamName !== "" &&
-                password !=="" &&
+                password !== "" &&
                 groupASize !== "" &&
                 groupBSize !== "" && (
                   <div
